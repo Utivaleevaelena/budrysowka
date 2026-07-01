@@ -53,6 +53,8 @@
   @media(max-width:1024px){[data-nav-desktop]{display:none !important;}[data-hamburger]{display:flex !important;}}
   @media(max-width:900px){[data-two-col]{grid-template-columns:1fr !important;}[data-sep-quote]{font-size:34px !important;}[data-hero-h1]{font-size:clamp(52px,16vw,86px) !important;}[data-pad]{padding-left:22px !important;padding-right:22px !important;}[data-hide-sm]{display:none !important;}[data-hero-img]{object-position:78% center !important;}[data-sticky-col]{position:static !important;top:auto !important;}[data-form-row]{grid-template-columns:1fr !important;}[data-gallery]{columns:2 !important;}[data-pad]{padding-left:16px !important;padding-right:16px !important;}[data-form-card]{padding:24px !important;}[data-floating]{right:12px !important;bottom:14px !important;gap:10px !important;}[data-floating] a{width:48px !important;height:48px !important;}}
   @media(max-width:520px){[data-gallery]{columns:1 !important;}}
+  @media(max-width:900px){[data-am-grid]{grid-template-columns:repeat(3,1fr) !important;}}
+  @media(max-width:560px){[data-am-grid]{grid-template-columns:repeat(2,1fr) !important;}}
   @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms !important;}}
 </style>
 </helmet>
@@ -134,10 +136,10 @@
   </div>
   <div style="margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">
     <sc-for list="{{ why }}" as="c" hint-placeholder-count="4">
-      <div class="rev" style="background:#F3EFE8;border-radius:22px;padding:34px 30px;border:1px solid rgba(63,91,67,.06);transition:transform .4s,box-shadow .4s;" style-hover="transform:translateY(-8px);box-shadow:0 30px 60px -34px rgba(47,69,51,.55);">
-        <div style="width:56px;height:56px;border-radius:16px;background:#FAF8F5;display:flex;align-items:center;justify-content:center;color:#3F5B43;box-shadow:0 8px 20px -12px rgba(63,91,67,.5);">{{ c.icon }}</div>
-        <h3 style="font-size:27px;margin-top:22px;">{{ c.title }}</h3>
-        <p style="color:#7D7D7D;font-size:15px;line-height:1.65;margin-top:10px;font-weight:300;">{{ c.text }}</p>
+      <div class="rev" style="{{ c.cardStyle }}" style-hover="transform:translateY(-8px);box-shadow:0 30px 60px -34px rgba(47,69,51,.55);">
+        <div style="{{ c.iconStyle }}">{{ c.icon }}</div>
+        <h3 style="{{ c.titleStyle }}">{{ c.title }}</h3>
+        <p style="{{ c.textStyle }}">{{ c.text }}</p>
       </div>
     </sc-for>
   </div>
@@ -168,7 +170,7 @@
       </div>
     </div>
     <div class="rev" style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:200px 200px;gap:16px;">
-      <img src="./assets/bud-about-1.webp" alt="Wnętrze domku Budrysówka" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:22px;grid-row:span 2;" />
+      <img src="./assets/bud-living.jpg" alt="Wnętrze domku Budrysówka — salon z kominkiem" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:22px;grid-row:span 2;" />
       <img src="./assets/bud-about-2.webp" alt="Taras o poranku" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:22px;" />
       <img src="./assets/bud-about-3.webp" alt="Las wokół domku" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:22px;" />
     </div>
@@ -224,18 +226,20 @@
   </div>
 </sc-if>
 
-<section id="udogodnienia" style="background:#F3EFE8;">
-  <div data-pad style="max-width:1280px;margin:0 auto;padding:100px 40px;">
+<section id="udogodnienia" style="position:relative;overflow:hidden;">
+  <img src="./assets/amenities.jpg" alt="Balia i ognisko przy domku Budrysówka o zmierzchu" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,34,26,.66) 0%,rgba(24,34,26,.74) 100%);"></div>
+  <div data-pad style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:100px 40px;">
     <div class="rev" style="text-align:center;max-width:620px;margin:0 auto;">
-      <span style="font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#A98D63;font-weight:600;">{{ t.amEyebrow }}</span>
-      <h2 style="font-size:clamp(38px,4.6vw,58px);line-height:1.05;margin-top:14px;">{{ t.amTitle }}</h2>
-      <p style="color:#7D7D7D;font-size:17px;line-height:1.7;margin-top:16px;font-weight:300;">{{ t.amText }}</p>
+      <span style="font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#C6B189;font-weight:600;">{{ t.amEyebrow }}</span>
+      <h2 style="font-size:clamp(38px,4.6vw,58px);line-height:1.05;margin-top:14px;color:#FAF8F5;">{{ t.amTitle }}</h2>
+      <p style="color:rgba(250,248,245,.86);font-size:17px;line-height:1.7;margin-top:16px;font-weight:300;">{{ t.amText }}</p>
     </div>
-    <div style="margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-      <sc-for list="{{ amenities }}" as="a" hint-placeholder-count="8">
-        <div class="rev" style="background:#FAF8F5;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:16px;transition:transform .35s,box-shadow .35s;" style-hover="transform:translateY(-6px);box-shadow:0 26px 50px -32px rgba(47,69,51,.55);">
-          <div style="width:50px;height:50px;border-radius:14px;background:#F3EFE8;display:flex;align-items:center;justify-content:center;color:#3F5B43;">{{ a.icon }}</div>
-          <span style="font-size:16px;font-weight:600;color:#2E2E2E;">{{ a.title }}</span>
+    <div data-am-grid style="margin-top:44px;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;">
+      <sc-for list="{{ amenities }}" as="a" hint-placeholder-count="10">
+        <div class="rev" style="background:rgba(47,69,51,.55);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:18px 18px;display:flex;align-items:center;gap:13px;transition:transform .35s,box-shadow .35s;" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -26px rgba(0,0,0,.6);">
+          <div style="width:40px;height:40px;flex-shrink:0;border-radius:11px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;color:#FAF8F5;">{{ a.icon }}</div>
+          <span style="font-size:14.5px;font-weight:600;color:#FAF8F5;line-height:1.25;">{{ a.title }}</span>
         </div>
       </sc-for>
     </div>
@@ -527,7 +531,7 @@ class Component extends DCLogic {
       galEyebrow: 'Galeria', galTitle: 'Zajrzyj do środka', galHint: 'Kliknij zdjęcie, aby otworzyć podgląd pełnoekranowy.',
       lbAlt: 'Podgląd zdjęcia',
       amEyebrow: 'Udogodnienia', amTitle: 'Wszystko, czego potrzebujesz', amText: 'Komfort butikowego hotelu w otoczeniu dzikiej natury.',
-      amenities: ['Wi-Fi','TV','Ekspres do kawy','Ręczniki','Pościel','Parking','Akceptujemy psy','Piękne spacery'],
+      amenities: ['Wi-Fi','TV','Ekspres do kawy','Ręczniki','Pościel','Parking','Akceptujemy psy','Piękne spacery','Grill','Balia'],
       locEyebrow: 'Lokalizacja', locTitle: 'W samym środku Kaszub',
       locText: 'Strzepcz, ul. Szczęśliwa — otoczenie lasów, jezior i szlaków. Idealna baza wypadowa dla miłośników spacerów i rowerów.',
       attractions: [
@@ -595,7 +599,7 @@ class Component extends DCLogic {
       galEyebrow: 'Gallery', galTitle: 'Take a look inside', galHint: 'Click a photo to open the full-screen preview.',
       lbAlt: 'Photo preview',
       amEyebrow: 'Amenities', amTitle: 'Everything you need', amText: 'Boutique-hotel comfort surrounded by wild nature.',
-      amenities: ['Wi-Fi','TV','Coffee machine','Towels','Bed linen','Parking','Dogs welcome','Beautiful walks'],
+      amenities: ['Wi-Fi','TV','Coffee machine','Towels','Bed linen','Parking','Dogs welcome','Beautiful walks','Grill','Hot tub'],
       locEyebrow: 'Location', locTitle: 'Right in the heart of Kashubia',
       locText: 'Strzepcz, Szczęśliwa St. — surrounded by forests, lakes and trails. A perfect base for lovers of walking and cycling.',
       attractions: [
@@ -701,6 +705,8 @@ class Component extends DCLogic {
       water: "M2 7c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2 M2 13c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2 M2 19c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2",
       pin: "M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Z M12 9.5a1.5 1.5 0 1 0 0 .01",
       bike: "M6.5 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z M17.5 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z M6.5 13l4-6h4l3 6 M9 7h3",
+      grill: "M4 7h16 M6 7a6 6 0 0 0 12 0 M8.5 13l-2 8 M15.5 13l2 8 M12 13.5v7.5 M10 4.5c-.4-.7.3-1.1 0-1.8 M14 4.5c-.4-.7.3-1.1 0-1.8",
+      tub: "M5 9h14v6a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V9Z M5 12h14 M9 6c-.5-1 .5-1.5 0-2.5 M12 6c-.5-1 .5-1.5 0-2.5 M15 6c-.5-1 .5-1.5 0-2.5",
       phone: "M6 3h3l2 5-2 1a12 12 0 0 0 5 5l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2Z",
       mail: "M3 6h18v12H3Z M3 7l9 6 9-6",
       cal: "M4 5h16v16H4Z M4 9h16 M8 3v4 M16 3v4",
@@ -753,12 +759,32 @@ class Component extends DCLogic {
     const nav = t.navLabels.map((label, i) => ({ label, href: hrefs[i] }));
 
     const whyIcons = [this.ic('leaf',28), this.ic('tree',28), this.ic('home',28), this.ic('lock',26)];
-    const why = t.why.map((w, i) => ({ title: w.title, text: w.text, icon: whyIcons[i] }));
+    const whyPhotos = ['assets/why-peace.jpg', 'assets/why-nature.jpg', 'assets/why-comfort.jpg', 'assets/why-privacy.jpg'];
+    const baseCard = 'border-radius:22px;padding:34px 30px;transition:transform .4s,box-shadow .4s;position:relative;overflow:hidden;';
+    const why = t.why.map((w, i) => {
+      const photo = whyPhotos[i];
+      if (photo) {
+        return {
+          title: w.title, text: w.text, icon: whyIcons[i],
+          cardStyle: baseCard + 'border:none;color:#FAF8F5;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(0deg,rgba(24,34,26,.85) 0%,rgba(24,34,26,.55) 38%,rgba(24,34,26,.14) 68%,rgba(24,34,26,0) 100%),url(' + photo + ') center/cover no-repeat;box-shadow:0 24px 50px -30px rgba(47,69,51,.6);',
+          iconStyle: 'width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.18);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;color:#FAF8F5;border:1px solid rgba(255,255,255,.35);',
+          titleStyle: 'font-size:27px;margin-top:22px;color:#FAF8F5;',
+          textStyle: 'color:rgba(250,248,245,.9);font-size:15px;line-height:1.65;margin-top:10px;font-weight:300;'
+        };
+      }
+      return {
+        title: w.title, text: w.text, icon: whyIcons[i],
+        cardStyle: baseCard + 'background:#F3EFE8;border:1px solid rgba(63,91,67,.06);',
+        iconStyle: 'width:56px;height:56px;border-radius:16px;background:#FAF8F5;display:flex;align-items:center;justify-content:center;color:#3F5B43;box-shadow:0 8px 20px -12px rgba(63,91,67,.5);',
+        titleStyle: 'font-size:27px;margin-top:22px;',
+        textStyle: 'color:#7D7D7D;font-size:15px;line-height:1.65;margin-top:10px;font-weight:300;'
+      };
+    });
 
     const statVals = [{v:120,sfx:'+'},{v:3,sfx:''},{v:48,sfx:' m²'},{v:300,sfx:'+'}];
     const stats = t.statLabels.map((label, i) => ({ value: statVals[i].v, suffix: statVals[i].sfx, label }));
 
-    const amIcons = [this.ic('wifi'),this.ic('tv'),this.ic('coffee'),this.ic('towel'),this.ic('bed'),this.ic('parking'),this.ic('paw'),this.ic('walk')];
+    const amIcons = [this.ic('wifi',22),this.ic('tv',22),this.ic('coffee',22),this.ic('towel',22),this.ic('bed',22),this.ic('parking',22),this.ic('paw',22),this.ic('walk',22),this.ic('grill',22),this.ic('tub',22)];
     const amenities = t.amenities.map((title, i) => ({ title, icon: amIcons[i] }));
 
     const attrIcons = [this.ic('tree',22),this.ic('water',22),this.ic('pin',22),this.ic('bike',22)];
