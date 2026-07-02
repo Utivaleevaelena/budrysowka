@@ -9,24 +9,24 @@
 <x-dc>
 <helmet>
 <title>Budrysówka — Luksusowy domek w sercu natury | Strzepcz, Kaszuby</title>
-<meta name="description" content="Budrysówka to butikowy domek wypoczynkowy otoczony lasem w Strzepczu na Kaszubach. Cisza, prywatność i komfort dla par, rodzin i osób pracujących zdalnie. Zarezerwuj pobyt." />
+<meta name="description" content="Budrysówka to sielski domek wypoczynkowy otoczony lasem w Strzepczu na Kaszubach. Cisza, prywatność i komfort dla par, rodzin i osób pracujących zdalnie. Zarezerwuj pobyt." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://budrysowka.pl/" />
 <meta property="og:type" content="business.business" />
 <meta property="og:title" content="Budrysówka — Twój odpoczynek w sercu natury" />
-<meta property="og:description" content="Butikowy domek w otulinie lasu. Cisza, natura, komfort i prywatność. Kaszuby, Strzepcz." />
+<meta property="og:description" content="Sielski domek w otulinie lasu. Cisza, natura, komfort i prywatność. Kaszuby, Strzepcz." />
 <meta property="og:locale" content="pl_PL" />
 <meta property="og:locale:alternate" content="en_GB" />
 <meta property="og:url" content="https://budrysowka.pl/" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Budrysówka — Twój odpoczynek w sercu natury" />
-<meta name="twitter:description" content="Butikowy domek w otulinie lasu. Cisza, natura, komfort i prywatność." />
+<meta name="twitter:description" content="Sielski domek w otulinie lasu. Cisza, natura, komfort i prywatność." />
 <meta name="theme-color" content="#3F5B43" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Budrysówka","description":"Butikowy domek wypoczynkowy w sercu lasu na Kaszubach.","image":"https://budrysowka.pl/og.jpg","url":"https://budrysowka.pl/","telephone":"+48501754117","email":"syrdub@wp.pl","priceRange":"$$$","petsAllowed":true,"address":{"@type":"PostalAddress","streetAddress":"ul. Szczęśliwa","addressLocality":"Strzepcz","addressRegion":"Pomorskie","addressCountry":"PL"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Wi-Fi","value":true},{"@type":"LocationFeatureSpecification","name":"Parking","value":true},{"@type":"LocationFeatureSpecification","name":"Akceptujemy psy","value":true}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"3"}}
+{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Budrysówka","description":"Sielski domek wypoczynkowy w sercu lasu na Kaszubach.","image":"https://budrysowka.pl/og.jpg","url":"https://budrysowka.pl/","telephone":"+48501754117","email":"syrdub@wp.pl","priceRange":"$$$","petsAllowed":true,"address":{"@type":"PostalAddress","streetAddress":"ul. Szczęśliwa","addressLocality":"Strzepcz","addressRegion":"Pomorskie","addressCountry":"PL"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Wi-Fi","value":true},{"@type":"LocationFeatureSpecification","name":"Parking","value":true},{"@type":"LocationFeatureSpecification","name":"Akceptujemy psy","value":true}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"3"}}
 </script>
 <style>
   *{box-sizing:border-box;}
@@ -246,6 +246,34 @@
   </div>
 </section>
 
+<section id="nocleg" data-pad style="max-width:1280px;margin:0 auto;padding:100px 40px;">
+  <div data-two-col style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+    <div class="rev">
+      <span style="font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#A98D63;font-weight:600;">{{ t.sleepEyebrow }}</span>
+      <h2 style="font-size:clamp(38px,4.4vw,56px);line-height:1.08;margin-top:14px;">{{ t.sleepTitle }}</h2>
+      <p style="color:#4a4a4a;font-size:17px;line-height:1.8;margin-top:20px;font-weight:300;">{{ t.sleepP1 }}</p>
+      <div style="margin-top:30px;font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;color:#2F4533;">{{ t.sleepLayoutTitle }}</div>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px;">
+        <sc-for list="{{ t.sleepBeds }}" as="b" hint-placeholder-count="3">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;background:#F3EFE8;border-radius:16px;">
+            <div>
+              <div style="font-weight:600;font-size:15.5px;color:#2F4533;">{{ b.room }}</div>
+              <div style="color:#7D7D7D;font-size:13.5px;font-weight:300;margin-top:2px;">{{ b.desc }}</div>
+            </div>
+            <div style="flex:none;font-size:13px;font-weight:600;color:#3F5B43;background:rgba(63,91,67,.1);padding:6px 12px;border-radius:999px;white-space:nowrap;">{{ b.people }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin-top:20px;font-size:16px;font-weight:600;color:#2F4533;">{{ t.sleepTotal }}</p>
+      <p style="color:#4a4a4a;font-size:16px;line-height:1.8;margin-top:14px;font-weight:300;">{{ t.sleepP2 }}</p>
+    </div>
+    <div class="rev" style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px;">
+      <img src="./assets/bud-bedroom-1.png" alt="{{ t.sleepAlt1 }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:22px;grid-column:span 2;aspect-ratio:16/10;box-shadow:0 30px 60px -45px rgba(47,69,51,.7);" />
+      <img src="./assets/bud-bedroom-2.png" alt="{{ t.sleepAlt2 }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:22px;grid-column:span 2;aspect-ratio:16/9;box-shadow:0 30px 60px -45px rgba(47,69,51,.7);" />
+    </div>
+  </div>
+</section>
+
 <section id="lokalizacja" data-pad style="max-width:1280px;margin:0 auto;padding:100px 40px;">
   <div data-two-col style="display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;">
     <div class="rev">
@@ -262,6 +290,18 @@
             </div>
           </div>
         </sc-for>
+      </div>
+      <div style="margin-top:28px;padding-top:28px;border-top:1px solid rgba(63,91,67,.15);">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:#2F4533;">{{ t.nearbyTitle }}</div>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ t.nearby }}" as="n" hint-placeholder-count="2">
+            <div style="display:flex;align-items:flex-start;gap:12px;color:#4a4a4a;font-size:15.5px;line-height:1.6;font-weight:300;">
+              <span style="flex:none;margin-top:9px;width:6px;height:6px;border-radius:50%;background:#A98D63;"></span>
+              <span>{{ n }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin-top:16px;color:#3F5B43;font-size:14.5px;font-weight:500;">{{ t.mapsHint }}</p>
       </div>
     </div>
     <div class="rev" style="border-radius:24px;overflow:hidden;box-shadow:0 40px 80px -50px rgba(47,69,51,.7);border:1px solid rgba(63,91,67,.1);min-height:460px;">
@@ -366,9 +406,18 @@
                 <input value="{{ osoby }}" onChange="{{ fOsoby }}" type="number" min="1" style="padding:13px 15px;border-radius:12px;border:1.5px solid #e6e0d6;background:#fff;font-size:15px;outline:none;" />
               </label>
               <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#4a4a4a;">{{ t.fKids }}
-                <input value="{{ dzieci }}" onChange="{{ fDzieci }}" type="number" min="0" style="padding:13px 15px;border-radius:12px;border:1.5px solid #e6e0d6;background:#fff;font-size:15px;outline:none;" />
+                <input value="{{ dzieci }}" onChange="{{ fDzieci }}" type="number" min="0" max="6" style="padding:13px 15px;border-radius:12px;border:1.5px solid #e6e0d6;background:#fff;font-size:15px;outline:none;" />
               </label>
             </div>
+            <sc-if value="{{ hasChildren }}" hint-placeholder-val="{{ false }}">
+              <div data-form-row style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                <sc-for list="{{ childAges }}" as="c" hint-placeholder-count="0">
+                  <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#4a4a4a;">{{ c.label }}
+                    <input value="{{ c.value }}" onChange="{{ c.onChange }}" type="number" min="0" max="17" placeholder="{{ c.phChildAge }}" style="padding:13px 15px;border-radius:12px;border:1.5px solid #e6e0d6;background:#fff;font-size:15px;outline:none;" />
+                  </label>
+                </sc-for>
+              </div>
+            </sc-if>
             <label style="display:flex;align-items:center;gap:12px;font-size:14.5px;color:#4a4a4a;cursor:pointer;padding:4px 0;">
               <input type="checkbox" checked="{{ pies }}" onChange="{{ fPies }}" style="width:20px;height:20px;accent-color:#3F5B43;" />
               {{ t.fPet }}
@@ -379,11 +428,14 @@
 
             <label style="display:flex;align-items:flex-start;gap:12px;font-size:13px;color:#5a5a5a;cursor:pointer;line-height:1.55;font-weight:400;">
               <input type="checkbox" checked="{{ gdpr }}" onChange="{{ fGdpr }}" style="width:20px;height:20px;accent-color:#3F5B43;flex-shrink:0;margin-top:1px;" />
-              <span>{{ t.gdpr1 }}<a href="#regulamin" style="color:#3F5B43;">{{ t.gdprReg }}</a>{{ t.gdpr2 }}<a href="#polityka" style="color:#3F5B43;">{{ t.gdprPol }}</a>{{ t.gdpr3 }}</span>
+              <span>{{ t.gdpr1 }}<a href="regulamin.html#regulamin" style="color:#3F5B43;">{{ t.gdprReg }}</a>{{ t.gdpr2 }}<a href="regulamin.html#polityka" style="color:#3F5B43;">{{ t.gdprPol }}</a>{{ t.gdpr3 }}</span>
             </label>
             <sc-if value="{{ eGdpr }}" hint-placeholder-val="{{ false }}"><span style="color:#b4462f;font-size:12.5px;margin-top:-8px;">{{ eGdpr }}</span></sc-if>
 
-            <button type="submit" style="margin-top:6px;background:#3F5B43;color:#FAF8F5;border:none;padding:17px;border-radius:44px;font-size:15.5px;font-weight:600;cursor:pointer;box-shadow:0 20px 44px -22px rgba(63,91,67,.9);transition:transform .3s,background .3s;" style-hover="transform:translateY(-2px);background:#2F4533;">{{ t.submitBtn }}</button>
+            <button type="submit" disabled="{{ sending }}" style="margin-top:6px;background:#3F5B43;color:#FAF8F5;border:none;padding:17px;border-radius:44px;font-size:15.5px;font-weight:600;cursor:pointer;box-shadow:0 20px 44px -22px rgba(63,91,67,.9);transition:transform .3s,background .3s;" style-hover="transform:translateY(-2px);background:#2F4533;">{{ submitLabel }}</button>
+            <sc-if value="{{ hasSubmitError }}" hint-placeholder-val="{{ false }}">
+              <p style="font-size:13px;color:#b23b3b;line-height:1.6;text-align:center;font-weight:500;margin-top:-4px;">{{ submitError }}</p>
+            </sc-if>
             <p style="font-size:11.5px;color:#9a9a9a;line-height:1.6;text-align:center;font-weight:300;">{{ t.privacyNote }}</p>
           </form>
         </sc-if>
@@ -435,9 +487,9 @@
       <div>
         <div style="color:#FAF8F5;font-weight:600;font-size:14px;letter-spacing:.4px;">{{ t.footerInfo }}</div>
         <div style="margin-top:16px;display:flex;flex-direction:column;gap:11px;">
-          <a href="#regulamin" style="color:#9c968c;text-decoration:none;font-size:14.5px;">{{ t.fRegulamin }}</a>
-          <a href="#polityka" style="color:#9c968c;text-decoration:none;font-size:14.5px;">{{ t.fPolityka }}</a>
-          <a href="#cookies" style="color:#9c968c;text-decoration:none;font-size:14.5px;">{{ t.fCookies }}</a>
+          <a href="regulamin.html#regulamin" style="color:#9c968c;text-decoration:none;font-size:14.5px;">{{ t.fRegulamin }}</a>
+          <a href="regulamin.html#polityka" style="color:#9c968c;text-decoration:none;font-size:14.5px;">{{ t.fPolityka }}</a>
+          <a href="regulamin.html#cookies" style="color:#9c968c;text-decoration:none;font-size:14.5px;">{{ t.fCookies }}</a>
           <a href="#" onClick="{{ openCookie }}" style="color:#9c968c;text-decoration:none;font-size:14.5px;cursor:pointer;">{{ t.fCookieSettings }}</a>
           <a href="#kontakt" style="color:#9c968c;text-decoration:none;font-size:14.5px;">{{ t.fKontakt }}</a>
         </div>
@@ -501,8 +553,8 @@ class Component extends DCLogic {
     openFaq: 0,
     lightboxOpen: false, lightboxIdx: 0,
     cookieOpen: false, cookieSettings: false, analytics: false, functional: false,
-    form: { imie:'', nazwisko:'', telefon:'', email:'', termin:'', osoby:'2', dzieci:'0', pies:false, wiadomosc:'', gdpr:false },
-    errors: {}, submitted: false
+    form: { imie:'', nazwisko:'', telefon:'', email:'', termin:'', osoby:'2', dzieci:'0', wiekDzieci:[], pies:false, wiadomosc:'', gdpr:false },
+    errors: {}, submitted: false, sending: false
   };
 
   galIds = ['gal-1','gal-2','gal-3','gal-4','gal-5','gal-6'];
@@ -532,6 +584,18 @@ class Component extends DCLogic {
       lbAlt: 'Podgląd zdjęcia',
       amEyebrow: 'Udogodnienia', amTitle: 'Wszystko, czego potrzebujesz', amText: 'Komfort butikowego hotelu w otoczeniu dzikiej natury.',
       amenities: ['Wi-Fi','TV','Ekspres do kawy','Ręczniki','Pościel','Parking','Akceptujemy psy','Piękne spacery','Grill','Balia'],
+      sleepEyebrow: 'Nocleg', sleepTitle: 'Miejsca do spania',
+      sleepP1: 'Sielski domek komfortowo pomieści do 7 osób. Do dyspozycji Gości są dwie przytulne sypialnie oraz dodatkowe miejsca do spania, dzięki czemu domek doskonale sprawdzi się zarówno dla rodzin, jak i grupy przyjaciół.',
+      sleepLayoutTitle: 'Układ miejsc do spania',
+      sleepBeds: [
+        { room: 'Sypialnia 1', desc: 'Łóżko dwuosobowe', people: '2 osoby' },
+        { room: 'Sypialnia 2', desc: 'Łóżko dwuosobowe oraz łóżko pojedyncze', people: '3 osoby' },
+        { room: 'Salon', desc: 'Wygodna rozkładana sofa', people: '2 osoby' }
+      ],
+      sleepTotal: 'Łącznie: maksymalnie 7 osób.',
+      sleepP2: 'Każda sypialnia wyposażona jest w świeżą pościel, a naturalne drewniane wnętrza tworzą ciepłą, sielską atmosferę sprzyjającą wypoczynkowi.',
+      sleepAlt1: 'Sypialnia z łóżkiem dwuosobowym w domku Budrysówka',
+      sleepAlt2: 'Sypialnia na poddaszu z dwoma łóżkami',
       locEyebrow: 'Lokalizacja', locTitle: 'W samym środku Kaszub',
       locText: 'Strzepcz, ul. Szczęśliwa — otoczenie lasów, jezior i szlaków. Idealna baza wypadowa dla miłośników spacerów i rowerów.',
       attractions: [
@@ -540,6 +604,12 @@ class Component extends DCLogic {
         { title: 'Szlaki spacerowe', text: 'Oznakowane trasy prosto spod domku' },
         { title: 'Trasy rowerowe', text: 'Malownicze ścieżki dla całej rodziny' }
       ],
+      nearbyTitle: 'W okolicy',
+      nearby: [
+        'Kąpielisko wiejskie z miejscem rekreacji i siłownią plenerową — około 10 minut spacerem',
+        'Dostęp do jeziora — około 250 m'
+      ],
+      mapsHint: 'W Google Maps wpisz „Budrysówka”.',
       revEyebrow: 'Opinie gości', revTitle: 'Powroty do natury, które zapadają w pamięć',
       reviews: [
         'Najpiękniejszy tydzień od lat. Cisza, zapach lasu i poranna kawa na tarasie — wróciliśmy naładowani energią.',
@@ -552,19 +622,25 @@ class Component extends DCLogic {
         { q: 'Jak wygląda rezerwacja?', a: 'Wyślij zapytanie przez formularz lub zadzwoń. Potwierdzimy dostępność wybranego terminu i prześlemy szczegóły rezerwacji oraz płatności.' },
         { q: 'Czy jest parking?', a: 'Tak, na terenie posesji znajduje się bezpłatny, prywatny parking bezpośrednio przy domku.' },
         { q: 'Czy domek jest ogrzewany?', a: 'Tak. Budrysówka jest komfortowo ogrzewana przez cały rok, dzięki czemu sprawdza się także jako miejsce na jesienne i zimowe wyjazdy.' },
-        { q: 'Jakie są godziny zameldowania?', a: 'Zameldowanie od godziny 15:00, wymeldowanie do 11:00. W miarę dostępności możliwe jest elastyczne dopasowanie godzin.' }
+        { q: 'Jakie są minimalne warunki rezerwacji?', a: 'Pobyt można zarezerwować na minimum 7 dni, od soboty do soboty.' },
+        { q: 'Jaka jest cena pobytu?', a: 'Cena wynosi 1000 zł za dobę i obejmuje pobyt do 4 osób dorosłych.' },
+        { q: 'Czy obowiązują dodatkowe opłaty za większą liczbę gości?', a: 'Tak. Każda dodatkowa osoba powyżej 4 osób kosztuje 100 zł za dobę.' },
+        { q: 'Ile osób może maksymalnie przebywać w domku?', a: 'Maksymalna liczba gości wynosi 7 osób.' },
+        { q: 'Jak traktowane są dzieci?', a: 'Dzieci do 12. roku życia objęte są kategorią dzieci. Dzieci powyżej 12 lat traktowane są jako osoby dorosłe. Podczas składania rezerwacji prosimy o podanie wieku każdego dziecka.' },
+        { q: 'Czy domek znajduje się blisko jeziora?', a: 'Tak. Dostęp do jeziora znajduje się w odległości około 250 metrów od domku. W pobliżu znajduje się również kąpielisko wiejskie z miejscem rekreacji oraz siłownią plenerową (około 10 minut spacerem).' },
+        { q: 'Jakie są godziny zameldowania?', a: 'Zameldowanie od 16:00, wymeldowanie do 11:00. W miarę dostępności możliwe jest elastyczne dopasowanie godzin.' }
       ],
       resEyebrow: 'Rezerwacja', resTitle: 'Zarezerwuj pobyt w Budrysówce',
       resText: 'Wyślij zapytanie, a skontaktujemy się z Tobą, by potwierdzić dostępność wybranego terminu. Odpowiadamy zwykle tego samego dnia.',
       fName: 'Imię', fSurname: 'Nazwisko', fPhone: 'Telefon', fEmail: 'E-mail', fDates: 'Termin pobytu',
-      fGuests: 'Liczba osób', fKids: 'Liczba dzieci', fPet: 'Przyjadę z pupilem 🐾', fMsg: 'Wiadomość',
+      fGuests: 'Liczba osób', fKids: 'Liczba dzieci', fChildAge: 'Wiek dziecka', phChildAge: 'np. 5', fPet: 'Przyjadę z pupilem 🐾', fMsg: 'Wiadomość',
       phName: 'Anna', phSurname: 'Kowalska', phEmail: 'anna@email.pl', phDates: 'np. 12–16 sierpnia 2026', phMsg: 'Napisz, czego potrzebujesz do udanego pobytu…',
       gdpr1: 'Zapoznałem(-am) się z ', gdprReg: 'Regulaminem', gdpr2: ' oraz ', gdprPol: 'Polityką Prywatności', gdpr3: ' i akceptuję ich postanowienia.',
       submitBtn: 'Wyślij zapytanie',
       privacyNote: 'Administratorem danych osobowych jest Tomek Budrys. Dane są przetwarzane wyłącznie w celu realizacji zapytania zgodnie z RODO. Ten formularz jest chroniony przez reCAPTCHA.',
       successTitle: 'Dziękujemy!', successText: 'Twoje zapytanie zostało wysłane. Odezwiemy się wkrótce, aby potwierdzić dostępność terminu.', successBtn: 'Wyślij kolejne zapytanie',
       contactEyebrow: 'Kontakt', contactTitle: 'Porozmawiajmy o Twoim pobycie', callBtn: 'Zadzwoń', emailBtn: 'Wyślij e-mail',
-      footerDesc: 'Butikowy domek w sercu kaszubskiego lasu. Cisza, natura i komfort — miejsce, do którego chce się wracać.',
+      footerDesc: 'Sielski domek w sercu kaszubskiego lasu. Cisza, natura i komfort — miejsce, do którego chce się wracać.',
       footerNav: 'Nawigacja', footerInfo: 'Informacje',
       fRegulamin: 'Regulamin', fPolityka: 'Polityka Prywatności', fCookies: 'Polityka Cookies', fCookieSettings: 'Ustawienia cookies', fKontakt: 'Kontakt',
       copyright: '© 2026 Budrysówka. Wszelkie prawa zastrzeżone.', locationLine: 'Strzepcz · Kaszuby · Polska',
@@ -574,7 +650,8 @@ class Component extends DCLogic {
       ccAnalytics: 'Analityczne', ccAnalyticsDesc: 'Google Analytics — statystyki ruchu',
       ccFunctional: 'Funkcjonalne', ccFunctionalDesc: 'Mapy, Instagram, YouTube',
       ccAcceptAll: 'Akceptuję wszystkie', ccReject: 'Odrzuć', ccSettings: 'Ustawienia', ccHideSettings: 'Ukryj ustawienia', ccSave: 'Zapisz ustawienia',
-      errName: 'Podaj imię', errPhone: 'Podaj numer telefonu', errEmail: 'Podaj poprawny adres e-mail', errDates: 'Wybierz termin pobytu', errGdpr: 'Zaakceptuj Regulamin oraz Politykę Prywatności'
+      errName: 'Podaj imię', errPhone: 'Podaj numer telefonu', errEmail: 'Podaj poprawny adres e-mail', errDates: 'Wybierz termin pobytu', errGdpr: 'Zaakceptuj Regulamin oraz Politykę Prywatności',
+      errSubmit: 'Nie udało się wysłać zapytania. Spróbuj ponownie lub napisz na syrdub@wp.pl.', sendingBtn: 'Wysyłanie…'
     },
     en: {
       navBook: 'Book now',
@@ -600,6 +677,18 @@ class Component extends DCLogic {
       lbAlt: 'Photo preview',
       amEyebrow: 'Amenities', amTitle: 'Everything you need', amText: 'Boutique-hotel comfort surrounded by wild nature.',
       amenities: ['Wi-Fi','TV','Coffee machine','Towels','Bed linen','Parking','Dogs welcome','Beautiful walks','Grill','Hot tub'],
+      sleepEyebrow: 'Sleeping', sleepTitle: 'Sleeping arrangements',
+      sleepP1: 'Sielski domek comfortably sleeps up to 7 guests. There are two cosy bedrooms plus additional sleeping places, so the cottage is perfect for both families and groups of friends.',
+      sleepLayoutTitle: 'Sleeping layout',
+      sleepBeds: [
+        { room: 'Bedroom 1', desc: 'Double bed', people: '2 people' },
+        { room: 'Bedroom 2', desc: 'Double bed and a single bed', people: '3 people' },
+        { room: 'Living room', desc: 'Comfortable sofa bed', people: '2 people' }
+      ],
+      sleepTotal: 'Total: up to 7 people.',
+      sleepP2: 'Each bedroom comes with fresh linen, and the natural wooden interiors create a warm, rustic atmosphere perfect for rest.',
+      sleepAlt1: 'Bedroom with a double bed at Budrysówka cottage',
+      sleepAlt2: 'Attic bedroom with two beds',
       locEyebrow: 'Location', locTitle: 'Right in the heart of Kashubia',
       locText: 'Strzepcz, Szczęśliwa St. — surrounded by forests, lakes and trails. A perfect base for lovers of walking and cycling.',
       attractions: [
@@ -608,6 +697,12 @@ class Component extends DCLogic {
         { title: 'Walking trails', text: 'Marked routes straight from the door' },
         { title: 'Cycling routes', text: 'Scenic paths for the whole family' }
       ],
+      nearbyTitle: 'Nearby',
+      nearby: [
+        'Village bathing spot with a recreation area and outdoor gym — about a 10-minute walk',
+        'Lake access — about 250 m'
+      ],
+      mapsHint: 'In Google Maps, search for “Budrysówka”.',
       revEyebrow: 'Guest reviews', revTitle: 'Returns to nature that stay with you',
       reviews: [
         'The most beautiful week in years. Silence, the scent of the forest and morning coffee on the terrace — we came back recharged.',
@@ -620,12 +715,18 @@ class Component extends DCLogic {
         { q: 'How does booking work?', a: 'Send an enquiry via the form or call us. We will confirm availability for your dates and send the booking and payment details.' },
         { q: 'Is there parking?', a: 'Yes, there is free, private parking on the property right by the cottage.' },
         { q: 'Is the cottage heated?', a: 'Yes. Budrysówka is comfortably heated year-round, so it is perfect for autumn and winter getaways too.' },
-        { q: 'What are the check-in hours?', a: 'Check-in from 3:00 PM, check-out by 11:00 AM. Subject to availability, flexible hours are possible.' }
+        { q: 'What are the minimum booking conditions?', a: 'Stays can be booked for a minimum of 7 days, Saturday to Saturday.' },
+        { q: 'How much does a stay cost?', a: 'The price is 1000 zł per night and covers up to 4 adults.' },
+        { q: 'Are there extra charges for more guests?', a: 'Yes. Each additional person above 4 guests costs 100 zł per night.' },
+        { q: 'What is the maximum number of guests?', a: 'The maximum number of guests is 7 people.' },
+        { q: 'How are children counted?', a: 'Children up to 12 years old are counted as children. Children over 12 are treated as adults. When booking, please provide the age of each child.' },
+        { q: 'Is the cottage close to a lake?', a: 'Yes. Lake access is about 250 metres from the cottage. Nearby there is also a village bathing spot with a recreation area and an outdoor gym (about a 10-minute walk).' },
+        { q: 'What are the check-in hours?', a: 'Check-in from 4:00 PM, check-out by 11:00 AM. Subject to availability, flexible hours are possible.' }
       ],
       resEyebrow: 'Booking', resTitle: 'Book your stay at Budrysówka',
       resText: 'Send us an enquiry and we will get back to you to confirm availability for your chosen dates. We usually reply the same day.',
       fName: 'First name', fSurname: 'Last name', fPhone: 'Phone', fEmail: 'Email', fDates: 'Stay dates',
-      fGuests: 'Number of guests', fKids: 'Number of children', fPet: 'I am bringing my pet 🐾', fMsg: 'Message',
+      fGuests: 'Number of guests', fKids: 'Number of children', fChildAge: 'Child age', phChildAge: 'e.g. 5', fPet: 'I am bringing my pet 🐾', fMsg: 'Message',
       phName: 'Anna', phSurname: 'Smith', phEmail: 'anna@email.com', phDates: 'e.g. 12–16 August 2026', phMsg: 'Tell us what you need for a perfect stay…',
       gdpr1: 'I have read the ', gdprReg: 'Terms & Conditions', gdpr2: ' and the ', gdprPol: 'Privacy Policy', gdpr3: ', and I accept them.',
       submitBtn: 'Send enquiry',
@@ -642,15 +743,14 @@ class Component extends DCLogic {
       ccAnalytics: 'Analytics', ccAnalyticsDesc: 'Google Analytics — traffic statistics',
       ccFunctional: 'Functional', ccFunctionalDesc: 'Maps, Instagram, YouTube',
       ccAcceptAll: 'Accept all', ccReject: 'Reject', ccSettings: 'Settings', ccHideSettings: 'Hide settings', ccSave: 'Save settings',
-      errName: 'Enter your first name', errPhone: 'Enter your phone number', errEmail: 'Enter a valid email address', errDates: 'Choose your stay dates', errGdpr: 'Please accept the Terms & Conditions and Privacy Policy'
+      errName: 'Enter your first name', errPhone: 'Enter your phone number', errEmail: 'Enter a valid email address', errDates: 'Choose your stay dates', errGdpr: 'Please accept the Terms & Conditions and the Privacy Policy',
+      errSubmit: 'Your enquiry could not be sent. Please try again or email syrdub@wp.pl.', sendingBtn: 'Sending…'
     }
   };
 
   componentDidMount() {
     try {
-      const l = localStorage.getItem('bud-lang');
-      if (l === 'en' || l === 'pl') this.setState({ lang: l });
-      document.documentElement.lang = (l === 'en') ? 'en' : 'pl';
+      document.documentElement.lang = 'pl';
     } catch (e) {}
     try { if (!localStorage.getItem('bud-cookie')) this.setState({ cookieOpen: true }); }
     catch (e) { this.setState({ cookieOpen: true }); }
@@ -737,6 +837,26 @@ class Component extends DCLogic {
 
   setField(k, val) { this.setState((s) => ({ form: Object.assign({}, s.form, { [k]: val }) })); }
 
+  setDzieci = (ev) => {
+    let n = parseInt(ev.target.value, 10);
+    if (isNaN(n) || n < 0) n = 0;
+    if (n > 6) n = 6;
+    this.setState((s) => {
+      const ages = (s.form.wiekDzieci || []).slice(0, n);
+      while (ages.length < n) ages.push('');
+      return { form: Object.assign({}, s.form, { dzieci: String(n), wiekDzieci: ages }) };
+    });
+  };
+
+  setChildAge = (i) => (ev) => {
+    const val = ev.target.value;
+    this.setState((s) => {
+      const ages = (s.form.wiekDzieci || []).slice();
+      ages[i] = val;
+      return { form: Object.assign({}, s.form, { wiekDzieci: ages }) };
+    });
+  };
+
   submit = (e) => {
     e.preventDefault();
     const f = this.state.form, err = {}, t = this.DICT[this.state.lang];
@@ -746,7 +866,30 @@ class Component extends DCLogic {
     if (!f.termin.trim()) err.termin = t.errDates;
     if (!f.gdpr) err.gdpr = t.errGdpr;
     if (Object.keys(err).length) { this.setState({ errors: err }); return; }
-    this.setState({ submitted: true, errors: {} });
+    this.setState({ sending: true, errors: {} });
+    const payload = {
+      _subject: 'Nowe zapytanie o rezerwację — Budrysówka',
+      _template: 'table',
+      _replyto: f.email,
+      Imię: f.imie,
+      Nazwisko: f.nazwisko,
+      Telefon: f.telefon,
+      Email: f.email,
+      'Termin pobytu': f.termin,
+      'Liczba osób': f.osoby,
+      'Liczba dzieci': f.dzieci,
+      'Wiek dzieci': (f.wiekDzieci && f.wiekDzieci.length) ? f.wiekDzieci.map((v, i) => (i + 1) + ': ' + (v || '—')).join(', ') : '—',
+      'Z pupilem': f.pies ? 'Tak' : 'Nie',
+      Wiadomość: f.wiadomosc
+    };
+    fetch('https://formsubmit.co/ajax/syrdub@wp.pl', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then((r) => { if (!r.ok) throw new Error('bad status'); return r.json(); })
+      .then(() => this.setState({ submitted: true, sending: false, errors: {} }))
+      .catch(() => this.setState({ sending: false, errors: { submit: t.errSubmit } }));
   };
 
   renderVals() {
@@ -842,12 +985,18 @@ class Component extends DCLogic {
       imie: f.imie, nazwisko: f.nazwisko, telefon: f.telefon, email: f.email,
       termin: f.termin, osoby: f.osoby, dzieci: f.dzieci, pies: f.pies, wiadomosc: f.wiadomosc, gdpr: f.gdpr,
       fImie: mk('imie'), fNazwisko: mk('nazwisko'), fTelefon: mk('telefon'), fEmail: mk('email'),
-      fTermin: mk('termin'), fOsoby: mk('osoby'), fDzieci: mk('dzieci'), fWiadomosc: mk('wiadomosc'),
+      fTermin: mk('termin'), fOsoby: mk('osoby'), fDzieci: this.setDzieci, fWiadomosc: mk('wiadomosc'),
+      childAges: (f.wiekDzieci || []).map((v, i) => ({ label: t.fChildAge + ' ' + (i + 1), value: v, phChildAge: t.phChildAge, onChange: this.setChildAge(i) })),
+      hasChildren: (f.wiekDzieci || []).length > 0,
       fPies: mkc('pies'), fGdpr: mkc('gdpr'),
       eImie: e.imie, eTelefon: e.telefon, eEmail: e.email, eTermin: e.termin, eGdpr: e.gdpr,
       submit: this.submit,
+      sending: s.sending,
+      submitLabel: s.sending ? t.sendingBtn : t.submitBtn,
+      submitError: s.errors.submit,
+      hasSubmitError: !!s.errors.submit,
       submitted: s.submitted, notSubmitted: !s.submitted,
-      resetForm: () => this.setState({ submitted: false, form: { imie:'', nazwisko:'', telefon:'', email:'', termin:'', osoby:'2', dzieci:'0', pies:false, wiadomosc:'', gdpr:false } }),
+      resetForm: () => this.setState({ submitted: false, form: { imie:'', nazwisko:'', telefon:'', email:'', termin:'', osoby:'2', dzieci:'0', wiekDzieci:[], pies:false, wiadomosc:'', gdpr:false } }),
 
       cookieOpen: s.cookieOpen, cookieSettings: s.cookieSettings,
       analytics: s.analytics, functional: s.functional,
