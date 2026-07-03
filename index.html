@@ -214,6 +214,9 @@
     <div class="rev" onClick="{{ lb5 }}" style="break-inside:avoid;margin-bottom:16px;border-radius:20px;overflow:hidden;cursor:pointer;transition:transform .4s;" style-hover="transform:scale(.985);">
       <img src="./assets/gal-6.webp" alt="Otoczenie domku" loading="lazy" style="width:100%;height:280px;display:block;object-fit:cover;" />
     </div>
+    <div class="rev" onClick="{{ lb6 }}" style="break-inside:avoid;margin-bottom:16px;border-radius:20px;overflow:hidden;cursor:pointer;transition:transform .4s;" style-hover="transform:scale(.985);">
+      <img src="./assets/gal-7.webp" alt="Łazienka na poddaszu" loading="lazy" style="width:100%;height:310px;display:block;object-fit:cover;" />
+    </div>
   </div>
 </section>
 
@@ -274,6 +277,50 @@
   </div>
 </section>
 
+<section id="teren" data-pad style="max-width:1280px;margin:0 auto;padding:100px 40px;">
+  <div data-two-col style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+    <div class="rev">
+      <span style="font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#A98D63;font-weight:600;">{{ t.terenEyebrow }}</span>
+      <h2 style="font-size:clamp(38px,4.4vw,56px);line-height:1.08;margin-top:14px;">{{ t.terenTitle }}</h2>
+      <p style="color:#4a4a4a;font-size:17px;line-height:1.8;margin-top:20px;font-weight:300;">{{ t.terenIntro }}</p>
+      <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <sc-for list="{{ terenAttractions }}" as="a" hint-placeholder-count="6">
+          <div style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#F3EFE8;border-radius:16px;">
+            <div style="color:#3F5B43;display:flex;flex-shrink:0;">{{ a.icon }}</div>
+            <span style="font-weight:600;font-size:14.5px;color:#2F4533;">{{ a.title }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="color:#4a4a4a;font-size:15.5px;line-height:1.75;margin-top:22px;font-weight:300;">{{ t.terenNote }}</p>
+      <p style="margin-top:18px;font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:#2F4533;">{{ t.terenClosing }}</p>
+    </div>
+    <div class="rev" style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px;">
+      <img src="./assets/teren-sup-lake.jpg" alt="{{ t.terenAlt1 }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:22px;grid-column:span 2;aspect-ratio:16/10;box-shadow:0 30px 60px -45px rgba(47,69,51,.7);" />
+      <img src="./assets/teren-campfire.jpg" alt="{{ t.terenAlt2 }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:22px;grid-column:span 2;aspect-ratio:16/9;box-shadow:0 30px 60px -45px rgba(47,69,51,.7);" />
+    </div>
+  </div>
+  <div style="margin-top:56px;columns:3;column-gap:16px;">
+    <div class="rev" style="break-inside:avoid;margin-bottom:16px;border-radius:20px;overflow:hidden;transition:transform .4s;" style-hover="transform:scale(.985);">
+      <img src="./assets/teren-sup-board.png" alt="Deska SUP dostępna dla Gości Budrysówki" loading="lazy" style="width:100%;height:340px;display:block;object-fit:cover;" />
+    </div>
+    <div class="rev" style="break-inside:avoid;margin-bottom:16px;border-radius:20px;overflow:hidden;transition:transform .4s;" style-hover="transform:scale(.985);">
+      <img src="./assets/teren-badminton.jpg" alt="Gra w badmintona w ogrodzie" loading="lazy" style="width:100%;height:230px;display:block;object-fit:cover;" />
+    </div>
+    <div class="rev" style="break-inside:avoid;margin-bottom:16px;border-radius:20px;overflow:hidden;transition:transform .4s;" style-hover="transform:scale(.985);">
+      <img src="./assets/teren-dusk-hottub.jpg" alt="Domek i balia ogrodowa o zmierzchu" loading="lazy" style="width:100%;height:300px;display:block;object-fit:cover;" />
+    </div>
+    <div class="rev" style="break-inside:avoid;margin-bottom:16px;border-radius:20px;overflow:hidden;transition:transform .4s;" style-hover="transform:scale(.985);">
+      <img src="./assets/teren-hammock-swings.jpg" alt="Hamak i huśtawki w ogrodzie" loading="lazy" style="width:100%;height:260px;display:block;object-fit:cover;" />
+    </div>
+    <div class="rev" style="break-inside:avoid;margin-bottom:16px;border-radius:20px;overflow:hidden;transition:transform .4s;" style-hover="transform:scale(.985);">
+      <img src="./assets/teren-swing-bench.jpg" alt="Huśtawka ogrodowa przy domku" loading="lazy" style="width:100%;height:320px;display:block;object-fit:cover;" />
+    </div>
+    <div class="rev" style="break-inside:avoid;margin-bottom:16px;border-radius:20px;overflow:hidden;transition:transform .4s;" style-hover="transform:scale(.985);">
+      <img src="./assets/teren-gazebo-night.jpg" alt="Wieczorna wiata z balią i piłkarzykami" loading="lazy" style="width:100%;height:250px;display:block;object-fit:cover;" />
+    </div>
+  </div>
+</section>
+
 <section id="lokalizacja" data-pad style="max-width:1280px;margin:0 auto;padding:100px 40px;">
   <div data-two-col style="display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;">
     <div class="rev">
@@ -305,7 +352,7 @@
       </div>
     </div>
     <div class="rev" style="border-radius:24px;overflow:hidden;box-shadow:0 40px 80px -50px rgba(47,69,51,.7);border:1px solid rgba(63,91,67,.1);min-height:460px;">
-      <iframe title="Mapa — Budrysówka, Strzepcz" src="https://www.google.com/maps?q=Strzepcz,+Kaszuby&output=embed" style="width:100%;height:100%;min-height:460px;border:0;filter:grayscale(.25) saturate(.9);" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe title="Mapa — Budrysówka, Strzepcz" src="https://www.google.com/maps?q=F288%2BJ7+Strzepcz&output=embed" style="width:100%;height:100%;min-height:460px;border:0;filter:grayscale(.25) saturate(.9);" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -557,12 +604,12 @@ class Component extends DCLogic {
     errors: {}, submitted: false, sending: false
   };
 
-  galIds = ['gal-1','gal-2','gal-3','gal-4','gal-5','gal-6'];
+  galIds = ['gal-1','gal-2','gal-3','gal-4','gal-5','gal-6','gal-7'];
 
   DICT = {
     pl: {
       navBook: 'Zarezerwuj',
-      navLabels: ['O nas','Galeria','Udogodnienia','Lokalizacja','Rezerwacja','Kontakt'],
+      navLabels: ['O nas','Galeria','Udogodnienia','Teren','Lokalizacja','Rezerwacja','Kontakt'],
       heroTitle: 'Twój odpoczynek w\u00A0sercu natury',
       heroSub: 'Odkryj wyjątkowe miejsce stworzone z myślą o ciszy, relaksie i bliskości natury.',
       heroBtn1: 'Zarezerwuj pobyt', heroBtn2: 'Poznaj Budrysówkę', scroll: 'Przewiń',
@@ -596,6 +643,12 @@ class Component extends DCLogic {
       sleepP2: 'Każda sypialnia wyposażona jest w świeżą pościel, a naturalne drewniane wnętrza tworzą ciepłą, sielską atmosferę sprzyjającą wypoczynkowi.',
       sleepAlt1: 'Sypialnia z łóżkiem dwuosobowym w domku Budrysówka',
       sleepAlt2: 'Sypialnia na poddaszu z dwoma łóżkami',
+      terenEyebrow: 'Teren', terenTitle: 'Ogród stworzony do relaksu',
+      terenIntro: 'Na terenie domu czeka na Państwa przestronna, zielona strefa wypoczynku i aktywnego relaksu. W cenę wynajmu wliczone są wszystkie dostępne atrakcje:',
+      terenItems: ['Deska SUP','Badminton','Siatkówka','Huśtawki','Hamak','Balia ogrodowa'],
+      terenNote: 'Drewno do kominka jest również wliczone w cenę pobytu, dzięki czemu nie muszą Państwo martwić się o żadne dodatkowe przygotowania.',
+      terenClosing: 'Przyjedź, zrelaksuj się i ciesz się wypoczynkiem – o resztę zadbaliśmy my.',
+      terenAlt1: 'Paddleboarding na jeziorze w pobliżu Budrysówki', terenAlt2: 'Ognisko i balia w ogrodzie Budrysówki',
       locEyebrow: 'Lokalizacja', locTitle: 'W samym środku Kaszub',
       locText: 'Strzepcz, ul. Szczęśliwa — otoczenie lasów, jezior i szlaków. Idealna baza wypadowa dla miłośników spacerów i rowerów.',
       attractions: [
@@ -620,7 +673,7 @@ class Component extends DCLogic {
       faqs: [
         { q: 'Czy można przyjechać z psem?', a: 'Tak, Budrysówka jest w pełni przyjazna czworonogom. Wokół czekają lasy i łąki idealne na długie spacery. Prosimy jedynie o wcześniejszą informację przy rezerwacji.' },
         { q: 'Jak wygląda rezerwacja?', a: 'Wyślij zapytanie przez formularz lub zadzwoń. Potwierdzimy dostępność wybranego terminu i prześlemy szczegóły rezerwacji oraz płatności.' },
-        { q: 'Czy jest parking?', a: 'Tak, na terenie posesji znajduje się bezpłatny, prywatny parking bezpośrednio przy domku.' },
+        { q: 'Czy jest parking?', a: 'Tak, parking znajduje się przed posesją, wzdłuż ogrodzenia.' },
         { q: 'Czy domek jest ogrzewany?', a: 'Tak. Budrysówka jest komfortowo ogrzewana przez cały rok, dzięki czemu sprawdza się także jako miejsce na jesienne i zimowe wyjazdy.' },
         { q: 'Jakie są minimalne warunki rezerwacji?', a: 'Pobyt można zarezerwować na minimum 7 dni, od soboty do soboty.' },
         { q: 'Jaka jest cena pobytu?', a: 'Cena wynosi 1000 zł za dobę i obejmuje pobyt do 4 osób dorosłych.' },
@@ -655,7 +708,7 @@ class Component extends DCLogic {
     },
     en: {
       navBook: 'Book now',
-      navLabels: ['About','Gallery','Amenities','Location','Booking','Contact'],
+      navLabels: ['About','Gallery','Amenities','Grounds','Location','Booking','Contact'],
       heroTitle: 'Your escape in the\u00A0heart of nature',
       heroSub: 'Discover a unique place created for silence, relaxation and closeness to nature.',
       heroBtn1: 'Book your stay', heroBtn2: 'Discover Budrysówka', scroll: 'Scroll',
@@ -689,6 +742,12 @@ class Component extends DCLogic {
       sleepP2: 'Each bedroom comes with fresh linen, and the natural wooden interiors create a warm, rustic atmosphere perfect for rest.',
       sleepAlt1: 'Bedroom with a double bed at Budrysówka cottage',
       sleepAlt2: 'Attic bedroom with two beds',
+      terenEyebrow: 'Grounds', terenTitle: 'A garden made for relaxing',
+      terenIntro: 'A spacious, green relaxation zone awaits you on the grounds. All available attractions are included in the price of your stay:',
+      terenItems: ['SUP board','Badminton','Volleyball','Swings','Hammock','Garden hot tub'],
+      terenNote: 'Firewood for the fireplace is also included in the price of your stay, so you never need to worry about extra preparations.',
+      terenClosing: 'Come, relax, and enjoy your stay – we\'ve taken care of the rest.',
+      terenAlt1: 'Paddleboarding on the lake near Budrysówka', terenAlt2: 'Campfire and hot tub in the Budrysówka garden',
       locEyebrow: 'Location', locTitle: 'Right in the heart of Kashubia',
       locText: 'Strzepcz, Szczęśliwa St. — surrounded by forests, lakes and trails. A perfect base for lovers of walking and cycling.',
       attractions: [
@@ -807,6 +866,11 @@ class Component extends DCLogic {
       bike: "M6.5 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z M17.5 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z M6.5 13l4-6h4l3 6 M9 7h3",
       grill: "M4 7h16 M6 7a6 6 0 0 0 12 0 M8.5 13l-2 8 M15.5 13l2 8 M12 13.5v7.5 M10 4.5c-.4-.7.3-1.1 0-1.8 M14 4.5c-.4-.7.3-1.1 0-1.8",
       tub: "M5 9h14v6a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V9Z M5 12h14 M9 6c-.5-1 .5-1.5 0-2.5 M12 6c-.5-1 .5-1.5 0-2.5 M15 6c-.5-1 .5-1.5 0-2.5",
+      sup: "M4 14c2-5.5 6.5-9 8-9s6 3.5 8 9c-1.2 3-5 5-8 5s-6.8-2-8-5Z M15 3.5l-4.5 5",
+      badminton: "M12 3a5 5 0 0 1 3.6 8.5c-1 1-2.3 1.9-3.6 2.7-1.3-.8-2.6-1.7-3.6-2.7A5 5 0 0 1 12 3Z M12 14.2V21 M9 21h6",
+      volleyball: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z M12 3c2.6 3 2.6 15 0 18 M3.4 9.5c3.2 2 14 2 17.2 0 M3.4 14.5c3.2-2 14-2 17.2 0",
+      swing: "M5 3v18 M19 3v18 M5 3h14 M9 13h6l-1.2 8H10.2Z",
+      hammock: "M2 7c4 2.5 16 2.5 20 0 M2 7l3.5 9h13L22 7 M5.5 16h13",
       phone: "M6 3h3l2 5-2 1a12 12 0 0 0 5 5l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2Z",
       mail: "M3 6h18v12H3Z M3 7l9 6 9-6",
       cal: "M4 5h16v16H4Z M4 9h16 M8 3v4 M16 3v4",
@@ -898,7 +962,7 @@ class Component extends DCLogic {
     const mk = (k) => (ev) => this.setField(k, ev.target.value);
     const mkc = (k) => (ev) => this.setField(k, ev.target.checked);
 
-    const hrefs = ['#o-nas','#galeria','#udogodnienia','#lokalizacja','#rezerwacja','#kontakt'];
+    const hrefs = ['#o-nas','#galeria','#udogodnienia','#teren','#lokalizacja','#rezerwacja','#kontakt'];
     const nav = t.navLabels.map((label, i) => ({ label, href: hrefs[i] }));
 
     const whyIcons = [this.ic('leaf',28), this.ic('tree',28), this.ic('home',28), this.ic('lock',26)];
@@ -933,6 +997,9 @@ class Component extends DCLogic {
     const attrIcons = [this.ic('tree',22),this.ic('water',22),this.ic('pin',22),this.ic('bike',22)];
     const attractions = t.attractions.map((a, i) => ({ title: a.title, text: a.text, icon: attrIcons[i] }));
 
+    const terenIcons = [this.ic('sup',22),this.ic('badminton',22),this.ic('volleyball',22),this.ic('swing',22),this.ic('hammock',22),this.ic('tub',22)];
+    const terenAttractions = t.terenItems.map((title, i) => ({ title, icon: terenIcons[i] }));
+
     const revMeta = [
       { name: 'Magdalena i Piotr', place: 'Warszawa', initial: 'M' },
       { name: 'Katarzyna', place: 'Gdańsk', initial: 'K' },
@@ -965,7 +1032,7 @@ class Component extends DCLogic {
       igIcon: this.ic('ig', 19), ytIcon: this.ic('yt', 19),
       bigCheck: this.ic('check', 38),
 
-      why, stats, tags: t.tags, amenities, attractions, reviews, faqs,
+      why, stats, tags: t.tags, amenities, attractions, terenAttractions, reviews, faqs,
 
       mobileOpen: s.mobileOpen,
       toggleMobile: () => this.setState((st) => ({ mobileOpen: !st.mobileOpen })),
@@ -978,9 +1045,10 @@ class Component extends DCLogic {
       lb3: () => this.setState({ lightboxOpen: true, lightboxIdx: 3 }),
       lb4: () => this.setState({ lightboxOpen: true, lightboxIdx: 4 }),
       lb5: () => this.setState({ lightboxOpen: true, lightboxIdx: 5 }),
+      lb6: () => this.setState({ lightboxOpen: true, lightboxIdx: 6 }),
       closeLb: () => this.setState({ lightboxOpen: false }),
-      nextLb: (ev) => { ev.stopPropagation(); this.setState((st) => ({ lightboxIdx: (st.lightboxIdx + 1) % 6 })); },
-      prevLb: (ev) => { ev.stopPropagation(); this.setState((st) => ({ lightboxIdx: (st.lightboxIdx + 5) % 6 })); },
+      nextLb: (ev) => { ev.stopPropagation(); this.setState((st) => ({ lightboxIdx: (st.lightboxIdx + 1) % 7 })); },
+      prevLb: (ev) => { ev.stopPropagation(); this.setState((st) => ({ lightboxIdx: (st.lightboxIdx + 6) % 7 })); },
 
       imie: f.imie, nazwisko: f.nazwisko, telefon: f.telefon, email: f.email,
       termin: f.termin, osoby: f.osoby, dzieci: f.dzieci, pies: f.pies, wiadomosc: f.wiadomosc, gdpr: f.gdpr,
