@@ -62,6 +62,7 @@
   @media(max-width:1024px){[data-nav-desktop]{display:none !important;}[data-hamburger]{display:flex !important;}}
   @media(max-width:900px){[data-two-col]{grid-template-columns:1fr !important;}[data-sep-quote]{font-size:34px !important;}[data-hero-h1]{font-size:clamp(52px,16vw,86px) !important;}[data-pad]{padding-left:22px !important;padding-right:22px !important;}[data-hide-sm]{display:none !important;}[data-hero-img]{object-position:78% center !important;}[data-sticky-col]{position:static !important;top:auto !important;}[data-form-row]{grid-template-columns:1fr !important;}[data-gallery]{columns:2 !important;}[data-pad]{padding-left:16px !important;padding-right:16px !important;}[data-form-card]{padding:24px !important;}[data-floating]{right:12px !important;bottom:14px !important;gap:10px !important;}[data-floating] a{width:48px !important;height:48px !important;}}
   @media(max-width:520px){[data-gallery]{columns:1 !important;}}
+  @media(max-width:720px){[data-teren-gallery]{columns:auto !important;display:flex !important;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:6px;margin-left:-24px;margin-right:-24px;padding-left:24px;padding-right:24px;}[data-teren-gallery]::-webkit-scrollbar{display:none;}[data-teren-gallery]>div{flex:0 0 86% !important;margin-bottom:0 !important;scroll-snap-align:center;background:#EDE7DC;}[data-teren-gallery]>div img{height:auto !important;max-height:72vh;object-fit:contain !important;}}
   @media(max-width:900px){[data-am-grid]{grid-template-columns:repeat(3,1fr) !important;}}
   @media(max-width:560px){[data-am-grid]{grid-template-columns:repeat(2,1fr) !important;}}
   @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms !important;}}
@@ -308,7 +309,7 @@
       <img src="./assets/teren-campfire.jpg" alt="{{ t.terenAlt2 }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:22px;grid-column:span 2;aspect-ratio:16/9;box-shadow:0 30px 60px -45px rgba(47,69,51,.7);" />
     </div>
   </div>
-  <div style="margin-top:56px;columns:3;column-gap:16px;">
+  <div data-teren-gallery style="margin-top:56px;columns:3;column-gap:16px;">
     <div class="rev" style="break-inside:avoid;margin-bottom:16px;border-radius:20px;overflow:hidden;transition:transform .4s;" style-hover="transform:scale(.985);">
       <img src="./assets/teren-sup-board.png" alt="Deska SUP dostępna dla Gości Budrysówki" loading="lazy" style="width:100%;height:340px;display:block;object-fit:cover;" />
     </div>
@@ -407,6 +408,102 @@
         </sc-if>
       </div>
     </sc-for>
+  </div>
+</section>
+
+<section id="cennik" data-pad style="max-width:1280px;margin:0 auto;padding:100px 40px;">
+  <div class="rev" style="text-align:center;max-width:620px;margin:0 auto;">
+    <span style="font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#A98D63;font-weight:600;">{{ t.calc.eyebrow }}</span>
+    <h2 style="font-size:clamp(38px,4.6vw,60px);line-height:1.06;margin-top:14px;">{{ t.calc.title }}</h2>
+    <p style="color:#4a4a4a;font-size:17px;line-height:1.8;margin-top:18px;font-weight:300;">{{ t.calc.intro }}</p>
+  </div>
+
+  <div data-two-col style="margin-top:52px;display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:start;">
+    <div class="rev" style="display:flex;flex-direction:column;gap:26px;">
+      <div style="background:#F3EFE8;border-radius:24px;padding:32px 30px;border:1px solid rgba(63,91,67,.07);">
+        <h3 style="font-size:24px;">{{ t.calc.priceListTitle }}</h3>
+        <div style="margin-top:18px;display:flex;flex-direction:column;">
+          <sc-for list="{{ calcPriceList }}" as="r" hint-placeholder-count="5">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid rgba(63,91,67,.12);">
+              <span style="color:#4a4a4a;font-size:15px;font-weight:400;">{{ r.k }}</span>
+              <span style="color:#2F4533;font-size:15.5px;font-weight:600;text-align:right;">{{ r.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="background:#2F4533;color:#FAF8F5;border-radius:24px;padding:32px 30px;">
+        <h3 style="font-size:24px;color:#FAF8F5;">{{ t.calc.inclTitle }}</h3>
+        <p style="color:rgba(250,248,245,.82);font-size:14.5px;line-height:1.65;margin-top:12px;font-weight:300;">{{ t.calc.inclText }}</p>
+        <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:9px;">
+          <sc-for list="{{ calcIncl }}" as="i" hint-placeholder-count="8">
+            <span style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:40px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);font-size:13.5px;font-weight:500;">{{ i.label }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div class="rev" style="background:#FAF8F5;border-radius:26px;padding:clamp(28px,4vw,40px);box-shadow:0 50px 90px -60px rgba(47,69,51,.6);border:1px solid rgba(63,91,67,.07);position:sticky;top:100px;">
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <div>
+            <div style="font-size:16px;font-weight:600;color:#2F4533;">{{ t.calc.nights }}</div>
+            <div style="font-size:13px;color:#8a8a8a;font-weight:300;margin-top:2px;">{{ calcNights }} {{ calcNightWord }}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <button onClick="{{ nightsDec }}" aria-label="minus" style="{{ stepBtn }}" style-hover="background:#F3EFE8;border-color:#3F5B43;">–</button>
+            <span style="min-width:30px;text-align:center;font-size:22px;font-weight:600;color:#2F4533;">{{ calcNights }}</span>
+            <button onClick="{{ nightsInc }}" aria-label="plus" style="{{ stepBtn }}" style-hover="background:#F3EFE8;border-color:#3F5B43;">+</button>
+          </div>
+        </div>
+        <div style="height:1px;background:rgba(63,91,67,.1);"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <div>
+            <div style="font-size:16px;font-weight:600;color:#2F4533;">{{ t.calc.guests }}</div>
+            <div style="font-size:13px;color:#8a8a8a;font-weight:300;margin-top:2px;">{{ t.calc.guestsIncl }}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <button onClick="{{ guestsDec }}" aria-label="minus" style="{{ stepBtn }}" style-hover="background:#F3EFE8;border-color:#3F5B43;">–</button>
+            <span style="min-width:30px;text-align:center;font-size:22px;font-weight:600;color:#2F4533;">{{ calcGuests }}</span>
+            <button onClick="{{ guestsInc }}" aria-label="plus" style="{{ stepBtn }}" style-hover="background:#F3EFE8;border-color:#3F5B43;">+</button>
+          </div>
+        </div>
+        <div style="height:1px;background:rgba(63,91,67,.1);"></div>
+        <label style="display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;">
+          <div>
+            <div style="font-size:16px;font-weight:600;color:#2F4533;">{{ t.calc.petLabel }}</div>
+            <div style="font-size:13px;color:#8a8a8a;font-weight:300;margin-top:2px;">{{ t.calc.petHint }}</div>
+          </div>
+          <input type="checkbox" checked="{{ calcPet }}" onChange="{{ togglePet }}" style="width:24px;height:24px;accent-color:#3F5B43;flex-shrink:0;" />
+        </label>
+      </div>
+
+      <div style="margin-top:26px;background:#F3EFE8;border-radius:20px;padding:24px;">
+        <div style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#A98D63;font-weight:600;">{{ t.calc.sumTitle }}</div>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;font-size:14.5px;color:#4a4a4a;">
+            <span>{{ t.calc.sumBase }}</span><span style="font-weight:500;color:#2F4533;">{{ calcBase }}</span>
+          </div>
+          <sc-if value="{{ calcHasExtra }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;justify-content:space-between;font-size:14.5px;color:#4a4a4a;">
+              <span>{{ t.calc.sumGuests }} (+{{ calcExtraGuests }})</span><span style="font-weight:500;color:#2F4533;">{{ calcExtra }}</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ calcHasPet }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;justify-content:space-between;font-size:14.5px;color:#4a4a4a;">
+              <span>{{ t.calc.sumPet }}</span><span style="font-weight:500;color:#2F4533;">{{ calcPetFee }}</span>
+            </div>
+          </sc-if>
+        </div>
+        <div style="height:1px;background:rgba(63,91,67,.15);margin:16px 0;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <span style="font-size:16px;font-weight:600;color:#2F4533;">{{ t.calc.sumTotal }}</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#3F5B43;line-height:1;">{{ calcTotal }}</span>
+        </div>
+      </div>
+
+      <button onClick="{{ calcSend }}" style="margin-top:22px;width:100%;background:#3F5B43;color:#FAF8F5;border:none;padding:18px;border-radius:44px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 20px 44px -22px rgba(63,91,67,.9);transition:transform .3s,background .3s;" style-hover="transform:translateY(-2px);background:#2F4533;">{{ t.calc.cta }}</button>
+      <p style="font-size:11.5px;color:#9a9a9a;line-height:1.6;text-align:center;font-weight:300;margin-top:14px;">{{ t.calc.note }}</p>
+    </div>
   </div>
 </section>
 
@@ -610,6 +707,7 @@ class Component extends DCLogic {
     lightboxOpen: false, lightboxIdx: 0,
     cookieOpen: false, cookieSettings: false, analytics: false, functional: false,
     form: { imie:'', nazwisko:'', telefon:'', email:'', termin:'', osoby:'2', dzieci:'0', wiekDzieci:[], pies:false, wiadomosc:'', gdpr:false },
+    calcNights: 2, calcGuests: 2, calcPet: false,
     errors: {}, submitted: false, sending: false
   };
 
@@ -618,7 +716,7 @@ class Component extends DCLogic {
   DICT = {
     pl: {
       navBook: 'Zarezerwuj',
-      navLabels: ['O nas','Galeria','Udogodnienia','Teren','Lokalizacja','Rezerwacja','Kontakt'],
+      navLabels: ['O nas','Galeria','Udogodnienia','Teren','Lokalizacja','Cennik','Rezerwacja','Kontakt'],
       heroTitle: 'Twój odpoczynek w\u00A0sercu natury',
       heroSub: 'Odkryj wyjątkowe miejsce stworzone z myślą o ciszy, relaksie i bliskości natury.',
       heroBtn1: 'Zarezerwuj pobyt', heroBtn2: 'Poznaj Budrysówkę', scroll: 'Przewiń',
@@ -658,6 +756,26 @@ class Component extends DCLogic {
       terenNote: 'Drewno do kominka jest również wliczone w cenę pobytu, dzięki czemu nie muszą Państwo martwić się o żadne dodatkowe przygotowania.',
       terenClosing: 'Przyjedź, zrelaksuj się i ciesz się wypoczynkiem – o resztę zadbaliśmy my.',
       terenAlt1: 'Paddleboarding na jeziorze w pobliżu Budrysówki', terenAlt2: 'Ognisko i balia w ogrodzie Budrysówki',
+      calc: {
+        eyebrow: 'Cennik', title: 'Oblicz cenę swojego pobytu',
+        intro: 'Zaplanuj pobyt w domku i od razu sprawdź jego całkowity koszt. Cena obejmuje korzystanie ze wszystkich udogodnień i atrakcji dostępnych na terenie obiektu.',
+        priceListTitle: 'Cennik',
+        priceList: [
+          ['Minimalny pobyt', '2 doby'],
+          ['Cena pobytu', '1000 zł / doba'],
+          ['Do 4 osób', 'w cenie'],
+          ['Każda dodatkowa osoba', '100 zł / osoba / doba'],
+          ['Pobyt ze zwierzęciem', '100 zł jednorazowo']
+        ],
+        inclTitle: 'Co obejmuje cena?',
+        inclText: 'W cenę pobytu wliczone jest korzystanie ze wszystkich dostępnych udogodnień i atrakcji — bez żadnych dodatkowych opłat:',
+        incl: ['Jacuzzi','Kominek','Miejsce na ognisko','Grill','Badminton','Siatkówka','Deski SUP','Pozostałe aktywności sportowe'],
+        nights: 'Liczba dób', guests: 'Liczba gości', night1: 'doba', night234: 'doby', night5: 'dób',
+        guest1: 'osoba', guest234: 'osoby', guest5: 'osób',
+        petLabel: 'Tak, przyjeżdżam ze zwierzęciem', petHint: 'Jednorazowa opłata 100 zł',
+        sumTitle: 'Podsumowanie', sumBase: 'Cena podstawowa', sumGuests: 'Dopłata za dodatkowych gości', sumPet: 'Dopłata za zwierzę', sumTotal: 'Całkowita cena pobytu',
+        guestsIncl: 'Do 4 osób w cenie', cta: 'Wyślij zapytanie', note: 'To wyliczenie orientacyjne. Przycisk prowadzi do zapytania o dostępność — nie jest to płatność ani natychmiastowa rezerwacja.'
+      },
       locEyebrow: 'Lokalizacja', locTitle: 'W samym środku Kaszub',
       locText: 'Strzepcz, ul. Szczęśliwa — otoczenie lasów, jezior i szlaków. Idealna baza wypadowa dla miłośników spacerów i rowerów.',
       attractions: [
@@ -684,7 +802,7 @@ class Component extends DCLogic {
         { q: 'Jak wygląda rezerwacja?', a: 'Wyślij zapytanie przez formularz lub zadzwoń. Potwierdzimy dostępność wybranego terminu i prześlemy szczegóły rezerwacji oraz płatności.' },
         { q: 'Czy jest parking?', a: 'Tak, parking znajduje się przed posesją, wzdłuż ogrodzenia.' },
         { q: 'Czy domek jest ogrzewany?', a: 'Tak. Budrysówka jest komfortowo ogrzewana przez cały rok, dzięki czemu sprawdza się także jako miejsce na jesienne i zimowe wyjazdy.' },
-        { q: 'Jakie są minimalne warunki rezerwacji?', a: 'Pobyt można zarezerwować na minimum 7 dni, od soboty do soboty.' },
+        { q: 'Jakie są minimalne warunki rezerwacji?', a: 'Pobyt można zarezerwować na minimum dwie doby.' },
         { q: 'Jaka jest cena pobytu?', a: 'Cena wynosi 1000 zł za dobę i obejmuje pobyt do 4 osób dorosłych.' },
         { q: 'Czy obowiązują dodatkowe opłaty za większą liczbę gości?', a: 'Tak. Każda dodatkowa osoba powyżej 4 osób kosztuje 100 zł za dobę.' },
         { q: 'Ile osób może maksymalnie przebywać w domku?', a: 'Maksymalna liczba gości wynosi 7 osób.' },
@@ -717,7 +835,7 @@ class Component extends DCLogic {
     },
     en: {
       navBook: 'Book now',
-      navLabels: ['About','Gallery','Amenities','Grounds','Location','Booking','Contact'],
+      navLabels: ['About','Gallery','Amenities','Grounds','Location','Pricing','Booking','Contact'],
       heroTitle: 'Your escape in the\u00A0heart of nature',
       heroSub: 'Discover a unique place created for silence, relaxation and closeness to nature.',
       heroBtn1: 'Book your stay', heroBtn2: 'Discover Budrysówka', scroll: 'Scroll',
@@ -757,6 +875,26 @@ class Component extends DCLogic {
       terenNote: 'Firewood for the fireplace is also included in the price of your stay, so you never need to worry about extra preparations.',
       terenClosing: 'Come, relax, and enjoy your stay – we\'ve taken care of the rest.',
       terenAlt1: 'Paddleboarding on the lake near Budrysówka', terenAlt2: 'Campfire and hot tub in the Budrysówka garden',
+      calc: {
+        eyebrow: 'Pricing', title: 'Calculate the price of your stay',
+        intro: 'Plan your stay and instantly see the total cost. The price includes use of all amenities and attractions available on site.',
+        priceListTitle: 'Price list',
+        priceList: [
+          ['Minimum stay', '2 nights'],
+          ['Price per night', '1000 zł / night'],
+          ['Up to 4 guests', 'included'],
+          ['Each additional guest', '100 zł / person / night'],
+          ['Stay with a pet', '100 zł one-time']
+        ],
+        inclTitle: 'What is included?',
+        inclText: 'The price includes use of all available amenities and attractions — with no extra charges:',
+        incl: ['Jacuzzi','Fireplace','Campfire area','Grill','Badminton','Volleyball','SUP boards','Other sports activities'],
+        nights: 'Nights', guests: 'Guests', night1: 'night', night234: 'nights', night5: 'nights',
+        guest1: 'guest', guest234: 'guests', guest5: 'guests',
+        petLabel: 'Yes, I am bringing a pet', petHint: 'One-time fee of 100 zł',
+        sumTitle: 'Summary', sumBase: 'Base price', sumGuests: 'Additional guests fee', sumPet: 'Pet fee', sumTotal: 'Total price of stay',
+        guestsIncl: 'Up to 4 guests included', cta: 'Send inquiry', note: 'This is an estimate. The button leads to an availability inquiry — it is not a payment or instant booking.'
+      },
       locEyebrow: 'Location', locTitle: 'Right in the heart of Kashubia',
       locText: 'Strzepcz, Szczęśliwa St. — surrounded by forests, lakes and trails. A perfect base for lovers of walking and cycling.',
       attractions: [
@@ -783,7 +921,7 @@ class Component extends DCLogic {
         { q: 'How does booking work?', a: 'Send an enquiry via the form or call us. We will confirm availability for your dates and send the booking and payment details.' },
         { q: 'Is there parking?', a: 'Yes, there is free, private parking on the property right by the cottage.' },
         { q: 'Is the cottage heated?', a: 'Yes. Budrysówka is comfortably heated year-round, so it is perfect for autumn and winter getaways too.' },
-        { q: 'What are the minimum booking conditions?', a: 'Stays can be booked for a minimum of 7 days, Saturday to Saturday.' },
+        { q: 'What are the minimum booking conditions?', a: 'Stays can be booked for a minimum of two nights.' },
         { q: 'How much does a stay cost?', a: 'The price is 1000 zł per night and covers up to 4 adults.' },
         { q: 'Are there extra charges for more guests?', a: 'Yes. Each additional person above 4 guests costs 100 zł per night.' },
         { q: 'What is the maximum number of guests?', a: 'The maximum number of guests is 7 people.' },
@@ -971,7 +1109,7 @@ class Component extends DCLogic {
     const mk = (k) => (ev) => this.setField(k, ev.target.value);
     const mkc = (k) => (ev) => this.setField(k, ev.target.checked);
 
-    const hrefs = ['#o-nas','#galeria','#udogodnienia','#teren','#lokalizacja','#rezerwacja','#kontakt'];
+    const hrefs = ['#o-nas','#galeria','#udogodnienia','#teren','#lokalizacja','#cennik','#rezerwacja','#kontakt'];
     const nav = t.navLabels.map((label, i) => ({ label, href: hrefs[i] }));
 
     const whyIcons = [this.ic('leaf',28), this.ic('tree',28), this.ic('home',28), this.ic('lock',26)];
@@ -1009,6 +1147,32 @@ class Component extends DCLogic {
     const terenIcons = [this.ic('sup',22),this.ic('badminton',22),this.ic('volleyball',22),this.ic('swing',22),this.ic('hammock',22),this.ic('tub',22)];
     const terenAttractions = t.terenItems.map((title, i) => ({ title, icon: terenIcons[i] }));
 
+    const cN = s.calcNights, cG = s.calcGuests, cP = s.calcPet, c = t.calc;
+    const cBase = cN * 1000;
+    const cExtraGuests = Math.max(0, cG - 4);
+    const cExtra = cExtraGuests * 100 * cN;
+    const cPetFee = cP ? 100 : 0;
+    const cTotal = cBase + cExtra + cPetFee;
+    const zl = (v) => v.toLocaleString('pl-PL') + ' zł';
+    const plural = (n, one, few, many) => n === 1 ? one : ([2,3,4].includes(n % 10) && ![12,13,14].includes(n % 100)) ? few : many;
+    const nightWord = plural(cN, c.night1, c.night234, c.night5);
+    const guestWord = plural(cG, c.guest1, c.guest234, c.guest5);
+    const calcIncl = c.incl.map((label) => ({ label }));
+    const calcPriceList = c.priceList.map((r) => ({ k: r[0], v: r[1] }));
+    const calcSend = () => {
+      const lines = [
+        c.nights + ': ' + cN,
+        c.guests + ': ' + cG,
+        c.petLabel + ': ' + (cP ? (s.lang === 'en' ? 'yes' : 'tak') : (s.lang === 'en' ? 'no' : 'nie')),
+        c.sumTotal + ': ' + zl(cTotal)
+      ];
+      const header = s.lang === 'en' ? 'Inquiry from the price calculator:' : 'Zapytanie z kalkulatora ceny:';
+      this.setState((st) => ({ form: { ...st.form, osoby: String(cG), pies: cP, wiadomosc: header + '\n' + lines.join('\n') } }));
+      const el = document.getElementById('rezerwacja');
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+    };
+    const stepBtn = 'width:44px;height:44px;flex-shrink:0;border-radius:50%;border:1.5px solid #d9d2c5;background:#fff;color:#2F4533;font-size:22px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:background .2s,border-color .2s;';
+
     const revMeta = [
       { name: 'Magdalena i Piotr', place: 'Warszawa', initial: 'M' },
       { name: 'Katarzyna', place: 'Gdańsk', initial: 'K' },
@@ -1042,6 +1206,19 @@ class Component extends DCLogic {
       bigCheck: this.ic('check', 38),
 
       why, stats, tags: t.tags, amenities, attractions, terenAttractions, reviews, faqs,
+
+      calcNights: cN, calcGuests: cG, calcPet: cP,
+      calcNightWord: nightWord, calcGuestWord: guestWord,
+      calcIncl, calcPriceList,
+      calcBase: zl(cBase), calcExtra: zl(cExtra), calcPetFee: zl(cPetFee), calcTotal: zl(cTotal),
+      calcExtraGuests: cExtraGuests, calcHasExtra: cExtra > 0, calcHasPet: cP,
+      stepBtn,
+      nightsDec: () => this.setState((st) => ({ calcNights: Math.max(2, st.calcNights - 1) })),
+      nightsInc: () => this.setState((st) => ({ calcNights: Math.min(60, st.calcNights + 1) })),
+      guestsDec: () => this.setState((st) => ({ calcGuests: Math.max(1, st.calcGuests - 1) })),
+      guestsInc: () => this.setState((st) => ({ calcGuests: Math.min(12, st.calcGuests + 1) })),
+      togglePet: (ev) => this.setState({ calcPet: ev.target.checked }),
+      calcSend,
 
       mobileOpen: s.mobileOpen,
       toggleMobile: () => this.setState((st) => ({ mobileOpen: !st.mobileOpen })),
