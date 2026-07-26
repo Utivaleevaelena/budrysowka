@@ -507,6 +507,17 @@
   </div>
 </section>
 
+<section id="kalendarz" data-pad style="max-width:1180px;margin:0 auto;padding:100px 40px;">
+  <div class="rev" style="text-align:center;max-width:620px;margin:0 auto;">
+    <span style="font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:#A98D63;font-weight:600;">{{ t.calEyebrow }}</span>
+    <h2 style="font-size:clamp(38px,4.6vw,60px);line-height:1.06;margin-top:14px;">{{ t.calTitle }}</h2>
+    <p style="color:#4a4a4a;font-size:17px;line-height:1.8;margin-top:18px;font-weight:300;">{{ t.calText }}</p>
+  </div>
+  <div class="rev" style="margin-top:44px;border-radius:24px;overflow:hidden;box-shadow:0 40px 80px -55px rgba(47,69,51,.6);border:1px solid rgba(63,91,67,.1);background:#fff;">
+    <iframe src="https://calendar.google.com/calendar/embed?src=syrdub123%40gmail.com&ctz=Europe%2FWarsaw&mode=MONTH&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0" style="border:0;width:100%;height:640px;display:block;" frameborder="0" scrolling="no" loading="lazy" title="Kalendarz rezerwacji Budrysówka"></iframe>
+  </div>
+</section>
+
 <section id="rezerwacja" style="background:#F3EFE8;">
   <div data-pad style="max-width:1280px;margin:0 auto;padding:100px 40px;">
     <div data-two-col style="display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;">
@@ -660,6 +671,53 @@
   <a href="#rezerwacja" aria-label="Zarezerwuj" style="width:56px;height:56px;border-radius:50%;background:#3F5B43;color:#FAF8F5;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 34px -12px rgba(63,91,67,.9);text-decoration:none;transition:transform .3s;" style-hover="transform:scale(1.08);">{{ calIcon }}</a>
 </div>
 
+<sc-if value="{{ promoOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closePromo }}" style="position:fixed;inset:0;z-index:195;background:rgba(30,35,28,.55);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:20px;animation:fadeIn .3s ease;">
+    <div onClick="{{ stop }}" style="background:#FAF8F5;border-radius:28px;max-width:460px;width:100%;overflow:hidden;box-shadow:0 50px 100px -40px rgba(0,0,0,.6);animation:floatIn .45s both;position:relative;">
+      <button onClick="{{ closePromo }}" aria-label="Zamknij" style="position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;background:rgba(255,255,255,.85);border-radius:50%;color:#2F4533;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;">×</button>
+      <div style="background:linear-gradient(135deg,#3F5B43,#2F4533);color:#FAF8F5;padding:30px 32px 26px;">
+        <span style="display:inline-flex;align-items:center;gap:7px;background:#A98D63;color:#2F4533;font-size:12px;font-weight:700;letter-spacing:1.5px;padding:6px 14px;border-radius:40px;">🔥 {{ t.promo.badge }}</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;line-height:1.1;margin-top:16px;color:#FAF8F5;">{{ t.promo.title }}</h3>
+        <p style="color:rgba(250,248,245,.82);font-size:14px;font-weight:300;margin-top:6px;">{{ t.promo.sub }}</p>
+      </div>
+      <div style="padding:26px 32px 30px;">
+        <sc-if value="{{ promoSent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:14px 0;">
+            <div style="width:64px;height:64px;margin:0 auto;border-radius:50%;background:#F3EFE8;display:flex;align-items:center;justify-content:center;color:#3F5B43;font-size:32px;">✓</div>
+            <p style="margin-top:18px;color:#2F4533;font-size:16px;line-height:1.6;font-weight:400;">{{ t.promo.thanks }}</p>
+            <button onClick="{{ closePromo }}" style="margin-top:22px;background:#3F5B43;color:#FAF8F5;border:none;padding:14px 32px;border-radius:40px;font-weight:600;font-size:15px;cursor:pointer;">OK</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ promoNotSent }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;gap:12px;">
+            <div style="flex:1;background:#F3EFE8;border-radius:16px;padding:16px;text-align:center;">
+              <div style="font-size:12.5px;color:#7D7D7D;font-weight:500;">{{ t.promo.d1 }}</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#3F5B43;margin-top:2px;">{{ t.promo.v1 }}</div>
+            </div>
+            <div style="flex:1;background:#3F5B43;border-radius:16px;padding:16px;text-align:center;color:#FAF8F5;">
+              <div style="font-size:12.5px;color:rgba(250,248,245,.8);font-weight:500;">{{ t.promo.d2 }}</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#FAF8F5;margin-top:2px;">{{ t.promo.v2 }}</div>
+            </div>
+          </div>
+          <div style="margin-top:12px;background:#A98D63;color:#2F4533;border-radius:14px;padding:12px 16px;text-align:center;font-size:14px;font-weight:600;">📅 {{ t.promo.sept }}</div>
+
+          <p style="margin-top:22px;font-weight:600;font-size:15.5px;color:#2F4533;">{{ t.promo.cta }}</p>
+          <p style="font-size:13px;color:#7D7D7D;font-weight:300;margin-top:4px;line-height:1.5;">{{ t.promo.note }}</p>
+          <input type="tel" value="{{ promoPhone }}" onInput="{{ setPromoPhone }}" placeholder="{{ t.promo.phPh }}" aria-label="{{ t.promo.phLabel }}" style="margin-top:12px;width:100%;box-sizing:border-box;padding:15px 18px;border:1.5px solid #d9d2c5;border-radius:14px;font-size:16px;font-family:inherit;background:#fff;color:#2E2E2E;outline:none;" style-focus="border-color:#3F5B43;" />
+          <sc-if value="{{ promoErr }}" hint-placeholder-val="{{ '' }}">
+            <p style="color:#b3401f;font-size:13px;margin-top:7px;">{{ promoErr }}</p>
+          </sc-if>
+          <button onClick="{{ sendPromo }}" disabled="{{ promoSending }}" style="margin-top:14px;width:100%;background:#3F5B43;color:#FAF8F5;border:none;padding:17px;border-radius:44px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 18px 40px -20px rgba(63,91,67,.9);transition:transform .3s,background .3s;" style-hover="transform:translateY(-2px);background:#2F4533;">{{ promoSendLabel }}</button>
+          <div style="margin-top:12px;display:flex;align-items:center;justify-content:center;gap:16px;">
+            <a href="tel:+48501754117" style="font-size:14px;font-weight:600;color:#3F5B43;text-decoration:none;">📞 {{ t.promo.callNow }}</a>
+            <button onClick="{{ closePromo }}" style="background:none;border:none;font-size:13.5px;color:#9a9a9a;cursor:pointer;text-decoration:underline;">{{ t.promo.later }}</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
 <sc-if value="{{ cookieOpen }}" hint-placeholder-val="{{ false }}">
   <div style="position:fixed;inset:0;z-index:190;background:rgba(30,35,28,.5);backdrop-filter:blur(10px);display:flex;align-items:flex-end;justify-content:center;padding:20px;animation:fadeIn .3s ease;">
     <div style="background:#FAF8F5;border-radius:24px;max-width:520px;width:100%;padding:32px;box-shadow:0 40px 90px -40px rgba(0,0,0,.6);animation:floatIn .4s both;">
@@ -708,6 +766,7 @@ class Component extends DCLogic {
     cookieOpen: false, cookieSettings: false, analytics: false, functional: false,
     form: { imie:'', nazwisko:'', telefon:'', email:'', termin:'', osoby:'2', dzieci:'0', wiekDzieci:[], pies:false, wiadomosc:'', gdpr:false },
     calcNights: 2, calcGuests: 2, calcPet: false,
+    promoOpen: false, promoPhone: '', promoSent: false, promoSending: false, promoErr: '',
     errors: {}, submitted: false, sending: false
   };
 
@@ -716,7 +775,7 @@ class Component extends DCLogic {
   DICT = {
     pl: {
       navBook: 'Zarezerwuj',
-      navLabels: ['O nas','Galeria','Udogodnienia','Teren','Lokalizacja','Cennik','Rezerwacja','Kontakt'],
+      navLabels: ['O nas','Galeria','Udogodnienia','Teren','Lokalizacja','Cennik','Kalendarz','Rezerwacja','Kontakt'],
       heroTitle: 'Twój odpoczynek w\u00A0sercu natury',
       heroSub: 'Odkryj wyjątkowe miejsce stworzone z myślą o ciszy, relaksie i bliskości natury.',
       heroBtn1: 'Zarezerwuj pobyt', heroBtn2: 'Poznaj Budrysówkę', scroll: 'Przewiń',
@@ -775,6 +834,16 @@ class Component extends DCLogic {
         petLabel: 'Tak, przyjeżdżam ze zwierzęciem', petHint: 'Jednorazowa opłata 100 zł',
         sumTitle: 'Podsumowanie', sumBase: 'Cena podstawowa', sumGuests: 'Dopłata za dodatkowych gości', sumPet: 'Dopłata za zwierzę', sumTotal: 'Całkowita cena pobytu',
         guestsIncl: 'Do 4 osób w cenie', cta: 'Wyślij zapytanie', note: 'To wyliczenie orientacyjne. Przycisk prowadzi do zapytania o dostępność — nie jest to płatność ani natychmiastowa rezerwacja.'
+      },
+      calEyebrow: 'Dostępność', calTitle: 'Kalendarz rezerwacji', calText: 'Sprawdź wolne terminy przed wysłaniem zapytania. Zaznaczone dni są już zarezerwowane.',
+      promo: {
+        badge: 'PROMOCJA', title: 'Skorzystaj ze specjalnej zniżki', sub: 'Oferta dla nowych Gości',
+        d1: 'Pobyt min. 3 noce', v1: '−5%', d2: 'Pobyt min. 5 nocy', v2: '−15%',
+        sept: 'We wrześniu cena za dobę tylko 750 zł',
+        cta: 'Zostaw numer — oddzwonimy', phLabel: 'Numer telefonu', phPh: 'np. 500 123 456',
+        note: 'Zadzwonimy, aby przedstawić szczegóły i zarezerwować Twoją zniżkę.',
+        send: 'Wyślij i zarezerwuj zniżkę', later: 'Może później', callNow: 'Zadzwoń teraz',
+        thanks: 'Dziękujemy! Skontaktujemy się z Tobą, aby potwierdzić szczegóły i zarezerwować zniżkę.', err: 'Podaj poprawny numer telefonu.'
       },
       locEyebrow: 'Lokalizacja', locTitle: 'W samym środku Kaszub',
       locText: 'Strzepcz, ul. Szczęśliwa — otoczenie lasów, jezior i szlaków. Idealna baza wypadowa dla miłośników spacerów i rowerów.',
@@ -835,7 +904,7 @@ class Component extends DCLogic {
     },
     en: {
       navBook: 'Book now',
-      navLabels: ['About','Gallery','Amenities','Grounds','Location','Pricing','Booking','Contact'],
+      navLabels: ['About','Gallery','Amenities','Grounds','Location','Pricing','Calendar','Booking','Contact'],
       heroTitle: 'Your escape in the\u00A0heart of nature',
       heroSub: 'Discover a unique place created for silence, relaxation and closeness to nature.',
       heroBtn1: 'Book your stay', heroBtn2: 'Discover Budrysówka', scroll: 'Scroll',
@@ -894,6 +963,16 @@ class Component extends DCLogic {
         petLabel: 'Yes, I am bringing a pet', petHint: 'One-time fee of 100 zł',
         sumTitle: 'Summary', sumBase: 'Base price', sumGuests: 'Additional guests fee', sumPet: 'Pet fee', sumTotal: 'Total price of stay',
         guestsIncl: 'Up to 4 guests included', cta: 'Send inquiry', note: 'This is an estimate. The button leads to an availability inquiry — it is not a payment or instant booking.'
+      },
+      calEyebrow: 'Availability', calTitle: 'Booking calendar', calText: 'Check available dates before sending your inquiry. Marked days are already booked.',
+      promo: {
+        badge: 'SPECIAL OFFER', title: 'Take advantage of a special discount', sub: 'Offer for new guests',
+        d1: 'Stay min. 3 nights', v1: '−5%', d2: 'Stay min. 5 nights', v2: '−15%',
+        sept: 'In September the price is only 750 zł per night',
+        cta: 'Leave your number — we\'ll call you back', phLabel: 'Phone number', phPh: 'e.g. 500 123 456',
+        note: 'We\'ll call to share the details and lock in your discount.',
+        send: 'Send & lock the discount', later: 'Maybe later', callNow: 'Call now',
+        thanks: 'Thank you! We\'ll contact you to confirm the details and secure your discount.', err: 'Please enter a valid phone number.'
       },
       locEyebrow: 'Location', locTitle: 'Right in the heart of Kashubia',
       locText: 'Strzepcz, Szczęśliwa St. — surrounded by forests, lakes and trails. A perfect base for lovers of walking and cycling.',
@@ -960,6 +1039,7 @@ class Component extends DCLogic {
     } catch (e) {}
     try { if (!localStorage.getItem('bud-cookie')) this.setState({ cookieOpen: true }); }
     catch (e) { this.setState({ cookieOpen: true }); }
+    try { if (!sessionStorage.getItem('bud-promo')) setTimeout(() => { if (!this.state.promoSent) this.setState({ promoOpen: true }); }, 6000); } catch (e) {}
     this.initCounters();
   }
 
@@ -1109,7 +1189,7 @@ class Component extends DCLogic {
     const mk = (k) => (ev) => this.setField(k, ev.target.value);
     const mkc = (k) => (ev) => this.setField(k, ev.target.checked);
 
-    const hrefs = ['#o-nas','#galeria','#udogodnienia','#teren','#lokalizacja','#cennik','#rezerwacja','#kontakt'];
+    const hrefs = ['#o-nas','#galeria','#udogodnienia','#teren','#lokalizacja','#cennik','#kalendarz','#rezerwacja','#kontakt'];
     const nav = t.navLabels.map((label, i) => ({ label, href: hrefs[i] }));
 
     const whyIcons = [this.ic('leaf',28), this.ic('tree',28), this.ic('home',28), this.ic('lock',26)];
@@ -1261,7 +1341,29 @@ class Component extends DCLogic {
       toggleFunctional: (ev) => this.setState({ functional: ev.target.checked }),
       cookieAcceptAll: () => { try { localStorage.setItem('bud-cookie', 'all'); } catch (x) {} this.setState({ cookieOpen: false, analytics: true, functional: true }); },
       cookieReject: () => { try { localStorage.setItem('bud-cookie', 'necessary'); } catch (x) {} this.setState({ cookieOpen: false, analytics: false, functional: false }); },
-      cookieSave: () => { try { localStorage.setItem('bud-cookie', JSON.stringify({ a: this.state.analytics, f: this.state.functional })); } catch (x) {} this.setState({ cookieOpen: false }); }
+      cookieSave: () => { try { localStorage.setItem('bud-cookie', JSON.stringify({ a: this.state.analytics, f: this.state.functional })); } catch (x) {} this.setState({ cookieOpen: false }); },
+      promoOpen: s.promoOpen,
+      promoNotSent: !s.promoSent,
+      promoSendLabel: s.promoSending ? '…' : t.promo.send,
+      stop: (ev) => ev.stopPropagation(),
+      promoPhone: s.promoPhone, promoSent: s.promoSent, promoSending: s.promoSending, promoErr: s.promoErr,
+      setPromoPhone: (ev) => this.setState({ promoPhone: ev.target.value, promoErr: '' }),
+      closePromo: () => { try { sessionStorage.setItem('bud-promo', '1'); } catch (x) {} this.setState({ promoOpen: false }); },
+      sendPromo: () => {
+        const tt = this.DICT[this.state.lang];
+        const ph = (this.state.promoPhone || '').trim();
+        if (ph.replace(/[^0-9]/g, '').length < 7) { this.setState({ promoErr: tt.promo.err }); return; }
+        this.setState({ promoSending: true, promoErr: '' });
+        try { sessionStorage.setItem('bud-promo', '1'); } catch (x) {}
+        fetch('https://formsubmit.co/ajax/syrdub@wp.pl', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ _subject: 'Zapytanie o promocję — Budrysówka', _template: 'table', Telefon: ph, Promocja: 'min 3 noce -5% / min 5 nocy -15% / wrzesień 750 zł/doba' })
+        })
+          .then((r) => { if (!r.ok) throw new Error('bad'); return r.json(); })
+          .then(() => this.setState({ promoSent: true, promoSending: false }))
+          .catch(() => this.setState({ promoSent: true, promoSending: false }));
+      }
     };
   }
 }
