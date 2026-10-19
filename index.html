@@ -136,7 +136,7 @@
       <a href="#o-nas" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:#FAF8F5;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.32);backdrop-filter:blur(10px);padding:17px 30px;border-radius:44px;font-weight:600;font-size:15.5px;transition:background .3s,transform .3s;" style-hover="background:rgba(255,255,255,.2);transform:translateY(-3px);">{{ t.heroBtn2 }}</a>
     </div>
     <a href="#cennik" class="promo-pop" style="margin-top:24px;text-decoration:none;display:inline-flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:14px 18px;border-radius:18px;background:linear-gradient(135deg,#B8923D,#8A6B2E);border:1.5px solid rgba(231,211,168,.7);">
-      <span style="display:inline-flex;align-items:center;gap:6px;background:#FAF8F5;color:#7a5a1e;font-size:12px;font-weight:800;letter-spacing:1.4px;padding:7px 13px;border-radius:40px;white-space:nowrap;"><span class="promo-flame">🔥</span> {{ t.promo.badge }}</span>
+      <span style="display:inline-flex;align-items:center;gap:6px;background:#FAF8F5;color:#7a5a1e;font-size:12px;font-weight:800;letter-spacing:1.4px;padding:7px 13px;border-radius:40px;white-space:nowrap;"><span class="promo-flame">🍁</span> {{ t.promo.badge }}</span>
       <span style="color:#FFF;font-size:14.5px;font-weight:600;">{{ t.promo.d1 }} <b style="color:#FFF1CE;">{{ t.promo.v1 }}</b> · {{ t.promo.d2 }} <b style="color:#FFF1CE;">{{ t.promo.v2 }}</b> · {{ t.promo.sept }}</span>
     </a>
   </div>
@@ -427,7 +427,7 @@
   </div>
 
   <div class="rev promo-pop" style="margin:36px auto 0;max-width:920px;background:linear-gradient(135deg,#B8923D,#8A6B2E);color:#FFF;border-radius:22px;padding:24px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px;border:1.5px solid rgba(231,211,168,.7);">
-    <span style="display:inline-flex;align-items:center;gap:7px;background:#FAF8F5;color:#7a5a1e;font-size:13px;font-weight:800;letter-spacing:1.5px;padding:9px 17px;border-radius:40px;white-space:nowrap;"><span class="promo-flame">🔥</span> {{ t.promo.badge }}</span>
+    <span style="display:inline-flex;align-items:center;gap:7px;background:#FAF8F5;color:#7a5a1e;font-size:13px;font-weight:800;letter-spacing:1.5px;padding:9px 17px;border-radius:40px;white-space:nowrap;"><span class="promo-flame">🍁</span> {{ t.promo.badge }}</span>
     <span style="display:inline-flex;align-items:baseline;gap:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:9px 17px;border-radius:40px;font-size:15px;font-weight:600;">{{ t.promo.d1 }}<b style="color:#FFF1CE;font-size:17px;">{{ t.promo.v1 }}</b></span>
     <span style="display:inline-flex;align-items:baseline;gap:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:9px 17px;border-radius:40px;font-size:15px;font-weight:600;">{{ t.promo.d2 }}<b style="color:#FFF1CE;font-size:17px;">{{ t.promo.v2 }}</b></span>
     <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:9px 17px;border-radius:40px;font-size:15px;font-weight:600;">{{ t.promo.sept }}</span>
@@ -490,13 +490,20 @@
           </div>
           <input type="checkbox" checked="{{ calcPet }}" onChange="{{ togglePet }}" style="width:24px;height:24px;accent-color:#3F5B43;flex-shrink:0;" />
         </label>
+        <label class="promo-pop" style="display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;background:linear-gradient(135deg,#B8923D,#8A6B2E);color:#FFF;border-radius:16px;padding:16px 18px;border:1.5px solid rgba(231,211,168,.7);">
+          <div>
+            <div style="font-size:16px;font-weight:700;">{{ t.calc.promoLabel }}</div>
+            <div style="font-size:13px;color:#FFF1CE;font-weight:500;margin-top:3px;">{{ t.calc.promoHint }}</div>
+          </div>
+          <input type="checkbox" checked="{{ calcPromo }}" onChange="{{ togglePromo }}" style="width:24px;height:24px;accent-color:#2F4533;flex-shrink:0;" />
+        </label>
       </div>
 
       <div style="margin-top:26px;background:#F3EFE8;border-radius:20px;padding:24px;">
         <div style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#A98D63;font-weight:600;">{{ t.calc.sumTitle }}</div>
         <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;">
           <div style="display:flex;justify-content:space-between;font-size:14.5px;color:#4a4a4a;">
-            <span>{{ t.calc.sumBase }}</span><span style="font-weight:500;color:#2F4533;">{{ calcBase }}</span>
+            <span>{{ calcBaseLabel }}</span><span style="font-weight:500;color:#2F4533;">{{ calcBase }}</span>
           </div>
           <sc-if value="{{ calcHasExtra }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex;justify-content:space-between;font-size:14.5px;color:#4a4a4a;">
@@ -541,7 +548,7 @@
         <h2 style="font-size:clamp(40px,4.6vw,62px);line-height:1.04;margin-top:14px;">{{ t.resTitle }}</h2>
         <p style="color:#4a4a4a;font-size:17px;line-height:1.8;margin-top:20px;font-weight:300;">{{ t.resText }}</p>
         <div class="promo-pop" style="margin-top:26px;background:linear-gradient(135deg,#B8923D,#8A6B2E);color:#FFF;border-radius:20px;padding:24px 26px;border:1.5px solid rgba(231,211,168,.7);">
-          <span style="display:inline-flex;align-items:center;gap:7px;background:#FAF8F5;color:#7a5a1e;font-size:12px;font-weight:800;letter-spacing:1.5px;padding:8px 15px;border-radius:40px;"><span class="promo-flame">🔥</span> {{ t.promo.badge }}</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;background:#FAF8F5;color:#7a5a1e;font-size:12px;font-weight:800;letter-spacing:1.5px;padding:8px 15px;border-radius:40px;"><span class="promo-flame">🍁</span> {{ t.promo.badge }}</span>
           <div style="margin-top:16px;display:flex;flex-direction:column;gap:9px;">
             <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;border-bottom:1px solid rgba(255,255,255,.22);padding-bottom:9px;"><span style="font-size:15px;font-weight:500;">{{ t.promo.d1 }}</span><b style="color:#FFF1CE;font-size:18px;">{{ t.promo.v1 }}</b></div>
             <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px;border-bottom:1px solid rgba(255,255,255,.22);padding-bottom:9px;"><span style="font-size:15px;font-weight:500;">{{ t.promo.d2 }}</span><b style="color:#FFF1CE;font-size:18px;">{{ t.promo.v2 }}</b></div>
@@ -699,7 +706,7 @@
     <div onClick="{{ stop }}" style="background:#FAF8F5;border-radius:28px;max-width:460px;width:100%;overflow:hidden;box-shadow:0 50px 100px -40px rgba(0,0,0,.6);animation:floatIn .45s both;position:relative;">
       <button onClick="{{ closePromo }}" aria-label="Zamknij" style="position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;background:rgba(255,255,255,.85);border-radius:50%;color:#2F4533;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;">×</button>
       <div style="background:linear-gradient(135deg,#3F5B43,#2F4533);color:#FAF8F5;padding:30px 32px 26px;">
-        <span style="display:inline-flex;align-items:center;gap:7px;background:#A98D63;color:#2F4533;font-size:12px;font-weight:700;letter-spacing:1.5px;padding:6px 14px;border-radius:40px;">🔥 {{ t.promo.badge }}</span>
+        <span style="display:inline-flex;align-items:center;gap:7px;background:#A98D63;color:#2F4533;font-size:12px;font-weight:700;letter-spacing:1.5px;padding:6px 14px;border-radius:40px;">🍁 {{ t.promo.badge }}</span>
         <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;line-height:1.1;margin-top:16px;color:#FAF8F5;">{{ t.promo.title }}</h3>
         <p style="color:rgba(250,248,245,.82);font-size:14px;font-weight:300;margin-top:6px;">{{ t.promo.sub }}</p>
       </div>
@@ -722,7 +729,7 @@
               <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#FAF8F5;margin-top:2px;">{{ t.promo.v2 }}</div>
             </div>
           </div>
-          <div style="margin-top:12px;background:#A98D63;color:#2F4533;border-radius:14px;padding:12px 16px;text-align:center;font-size:14px;font-weight:600;">📅 {{ t.promo.sept }}</div>
+          <div style="margin-top:12px;background:#A98D63;color:#2F4533;border-radius:14px;padding:12px 16px;text-align:center;font-size:14px;font-weight:600;">{{ t.promo.sept }}</div>
 
           <p style="margin-top:22px;font-weight:600;font-size:15.5px;color:#2F4533;">{{ t.promo.cta }}</p>
           <p style="font-size:13px;color:#7D7D7D;font-weight:300;margin-top:4px;line-height:1.5;">{{ t.promo.note }}</p>
@@ -788,7 +795,7 @@ class Component extends DCLogic {
     lightboxOpen: false, lightboxIdx: 0,
     cookieOpen: false, cookieSettings: false, analytics: false, functional: false,
     form: { imie:'', nazwisko:'', telefon:'', email:'', termin:'', osoby:'2', dzieci:'0', wiekDzieci:[], pies:false, wiadomosc:'', gdpr:false },
-    calcNights: 2, calcGuests: 2, calcPet: false,
+    calcNights: 2, calcGuests: 2, calcPet: false, calcPromo: false,
     promoOpen: false, promoPhone: '', promoSent: false, promoSending: false, promoErr: '',
     errors: {}, submitted: false, sending: false
   };
@@ -819,7 +826,7 @@ class Component extends DCLogic {
       galEyebrow: 'Galeria', galTitle: 'Zajrzyj do środka', galHint: 'Kliknij zdjęcie, aby otworzyć podgląd pełnoekranowy.',
       lbAlt: 'Podgląd zdjęcia',
       amEyebrow: 'Udogodnienia', amTitle: 'Wszystko, czego potrzebujesz', amText: 'Komfort butikowego hotelu w otoczeniu dzikiej natury.',
-      amenities: ['Wi-Fi','TV','Ekspres do kawy','Ręczniki','Pościel','Parking','Akceptujemy psy','Piękne spacery','Grill','Balia'],
+      amenities: ['Wi-Fi','Ekspres do kawy','Ręczniki','Pościel','Parking','Akceptujemy psy','Piękne spacery','Grill','Balia'],
       sleepEyebrow: 'Nocleg', sleepTitle: 'Miejsca do spania',
       sleepP1: 'Sielski domek komfortowo pomieści do 7 osób. Do dyspozycji Gości są dwie przytulne sypialnie oraz dodatkowe miejsca do spania, dzięki czemu domek doskonale sprawdzi się zarówno dla rodzin, jak i grupy przyjaciół.',
       sleepLayoutTitle: 'Układ miejsc do spania',
@@ -855,14 +862,15 @@ class Component extends DCLogic {
         nights: 'Liczba dób', guests: 'Liczba gości', night1: 'doba', night234: 'doby', night5: 'dób',
         guest1: 'osoba', guest234: 'osoby', guest5: 'osób',
         petLabel: 'Tak, przyjeżdżam ze zwierzęciem', petHint: 'Jednorazowa opłata 100 zł',
+        promoLabel: '🍁 Aktywuj Jesienną Promocję', promoHint: 'Weekend, 2 noce, do 4 osób — 999 zł bez dopłat', sumPromo: 'Jesienna Promocja (2 noce, do 4 os.)',
         sumTitle: 'Podsumowanie', sumBase: 'Cena podstawowa', sumGuests: 'Dopłata za dodatkowych gości', sumPet: 'Dopłata za zwierzę', sumTotal: 'Całkowita cena pobytu',
         guestsIncl: 'Do 4 osób w cenie', cta: 'Wyślij zapytanie', note: 'To wyliczenie orientacyjne. Przycisk prowadzi do zapytania o dostępność — nie jest to płatność ani natychmiastowa rezerwacja.'
       },
       calEyebrow: 'Dostępność', calTitle: 'Kalendarz rezerwacji', calText: 'Sprawdź wolne terminy przed wysłaniem zapytania. Zaznaczone dni są już zarezerwowane.',
       promo: {
-        badge: 'PROMOCJA', title: 'Skorzystaj ze specjalnej zniżki', sub: 'Oferta dla nowych Gości',
-        d1: 'Pobyt min. 3 noce', v1: '−5%', d2: 'Pobyt min. 5 nocy', v2: '−15%',
-        sept: 'We wrześniu cena za dobę tylko 750 zł',
+        badge: 'JESIENNA PROMOCJA', title: 'Jesienna Promocja 🍁', sub: 'Pobyty weekendowe bez dopłat',
+        d1: 'Weekend · 2 noce, do 4 os.', v1: '999 zł', d2: 'Dopłaty', v2: 'brak',
+        sept: 'Bez dopłat — zapraszamy 🤝',
         cta: 'Zostaw numer — oddzwonimy', phLabel: 'Numer telefonu', phPh: 'np. 500 123 456',
         note: 'Zadzwonimy, aby przedstawić szczegóły i zarezerwować Twoją zniżkę.',
         send: 'Wyślij i zarezerwuj zniżkę', later: 'Może później', callNow: 'Zadzwoń teraz',
@@ -948,7 +956,7 @@ class Component extends DCLogic {
       galEyebrow: 'Gallery', galTitle: 'Take a look inside', galHint: 'Click a photo to open the full-screen preview.',
       lbAlt: 'Photo preview',
       amEyebrow: 'Amenities', amTitle: 'Everything you need', amText: 'Boutique-hotel comfort surrounded by wild nature.',
-      amenities: ['Wi-Fi','TV','Coffee machine','Towels','Bed linen','Parking','Dogs welcome','Beautiful walks','Grill','Hot tub'],
+      amenities: ['Wi-Fi','Coffee machine','Towels','Bed linen','Parking','Dogs welcome','Beautiful walks','Grill','Hot tub'],
       sleepEyebrow: 'Sleeping', sleepTitle: 'Sleeping arrangements',
       sleepP1: 'Sielski domek comfortably sleeps up to 7 guests. There are two cosy bedrooms plus additional sleeping places, so the cottage is perfect for both families and groups of friends.',
       sleepLayoutTitle: 'Sleeping layout',
@@ -984,14 +992,15 @@ class Component extends DCLogic {
         nights: 'Nights', guests: 'Guests', night1: 'night', night234: 'nights', night5: 'nights',
         guest1: 'guest', guest234: 'guests', guest5: 'guests',
         petLabel: 'Yes, I am bringing a pet', petHint: 'One-time fee of 100 zł',
+        promoLabel: '🍁 Activate the Autumn Offer', promoHint: 'Weekend, 2 nights, up to 4 guests — 999 zł, no extra charges', sumPromo: 'Autumn Offer (2 nights, up to 4 guests)',
         sumTitle: 'Summary', sumBase: 'Base price', sumGuests: 'Additional guests fee', sumPet: 'Pet fee', sumTotal: 'Total price of stay',
         guestsIncl: 'Up to 4 guests included', cta: 'Send inquiry', note: 'This is an estimate. The button leads to an availability inquiry — it is not a payment or instant booking.'
       },
       calEyebrow: 'Availability', calTitle: 'Booking calendar', calText: 'Check available dates before sending your inquiry. Marked days are already booked.',
       promo: {
-        badge: 'SPECIAL OFFER', title: 'Take advantage of a special discount', sub: 'Offer for new guests',
-        d1: 'Stay min. 3 nights', v1: '−5%', d2: 'Stay min. 5 nights', v2: '−15%',
-        sept: 'In September the price is only 750 zł per night',
+        badge: 'AUTUMN OFFER', title: 'Autumn Offer 🍁', sub: 'Weekend stays with no extra charges',
+        d1: 'Weekend · 2 nights, up to 4 guests', v1: '999 zł', d2: 'Extra charges', v2: 'none',
+        sept: 'No extra charges — you are welcome 🤝',
         cta: 'Leave your number — we\'ll call you back', phLabel: 'Phone number', phPh: 'e.g. 500 123 456',
         note: 'We\'ll call to share the details and lock in your discount.',
         send: 'Send & lock the discount', later: 'Maybe later', callNow: 'Call now',
@@ -1241,7 +1250,7 @@ class Component extends DCLogic {
     const statVals = [{v:120,sfx:'+'},{v:3,sfx:''},{v:48,sfx:' m²'},{v:300,sfx:'+'}];
     const stats = t.statLabels.map((label, i) => ({ value: statVals[i].v, suffix: statVals[i].sfx, label }));
 
-    const amIcons = [this.ic('wifi',22),this.ic('tv',22),this.ic('coffee',22),this.ic('towel',22),this.ic('bed',22),this.ic('parking',22),this.ic('paw',22),this.ic('walk',22),this.ic('grill',22),this.ic('tub',22)];
+    const amIcons = [this.ic('wifi',22),this.ic('coffee',22),this.ic('towel',22),this.ic('bed',22),this.ic('parking',22),this.ic('paw',22),this.ic('walk',22),this.ic('grill',22),this.ic('tub',22)];
     const amenities = t.amenities.map((title, i) => ({ title, icon: amIcons[i] }));
 
     const attrIcons = [this.ic('tree',22),this.ic('water',22),this.ic('pin',22),this.ic('bike',22)];
@@ -1251,8 +1260,9 @@ class Component extends DCLogic {
     const terenAttractions = t.terenItems.map((title, i) => ({ title, icon: terenIcons[i] }));
 
     const cN = s.calcNights, cG = s.calcGuests, cP = s.calcPet, c = t.calc;
-    const cBase = cN * 1000;
-    const cExtraGuests = Math.max(0, cG - 4);
+    const cPr = s.calcPromo;
+    const cBase = cPr ? 999 : cN * 1000;
+    const cExtraGuests = cPr ? 0 : Math.max(0, cG - 4);
     const cExtra = cExtraGuests * 100 * cN;
     const cPetFee = cP ? 100 : 0;
     const cTotal = cBase + cExtra + cPetFee;
@@ -1267,6 +1277,7 @@ class Component extends DCLogic {
         c.nights + ': ' + cN,
         c.guests + ': ' + cG,
         c.petLabel + ': ' + (cP ? (s.lang === 'en' ? 'yes' : 'tak') : (s.lang === 'en' ? 'no' : 'nie')),
+        ...(cPr ? [c.sumPromo] : []),
         c.sumTotal + ': ' + zl(cTotal)
       ];
       const header = s.lang === 'en' ? 'Inquiry from the price calculator:' : 'Zapytanie z kalkulatora ceny:';
@@ -1310,16 +1321,17 @@ class Component extends DCLogic {
 
       why, stats, tags: t.tags, amenities, attractions, terenAttractions, reviews, faqs,
 
-      calcNights: cN, calcGuests: cG, calcPet: cP,
+      calcNights: cN, calcGuests: cG, calcPet: cP, calcPromo: cPr, calcBaseLabel: cPr ? c.sumPromo : c.sumBase,
       calcNightWord: nightWord, calcGuestWord: guestWord,
       calcIncl, calcPriceList,
       calcBase: zl(cBase), calcExtra: zl(cExtra), calcPetFee: zl(cPetFee), calcTotal: zl(cTotal),
       calcExtraGuests: cExtraGuests, calcHasExtra: cExtra > 0, calcHasPet: cP,
       stepBtn,
       nightsDec: () => this.setState((st) => ({ calcNights: Math.max(2, st.calcNights - 1) })),
-      nightsInc: () => this.setState((st) => ({ calcNights: Math.min(60, st.calcNights + 1) })),
+      nightsInc: () => this.setState((st) => ({ calcNights: Math.min(60, st.calcNights + 1), calcPromo: false })),
       guestsDec: () => this.setState((st) => ({ calcGuests: Math.max(1, st.calcGuests - 1) })),
-      guestsInc: () => this.setState((st) => ({ calcGuests: Math.min(12, st.calcGuests + 1) })),
+      guestsInc: () => this.setState((st) => ({ calcGuests: Math.min(12, st.calcGuests + 1), calcPromo: st.calcPromo && st.calcGuests + 1 <= 4 })),
+      togglePromo: (ev) => { const on = ev.target.checked; this.setState((st) => on ? ({ calcPromo: true, calcNights: 2, calcGuests: Math.min(4, st.calcGuests) }) : ({ calcPromo: false })); },
       togglePet: (ev) => this.setState({ calcPet: ev.target.checked }),
       calcSend,
 
@@ -1385,7 +1397,7 @@ class Component extends DCLogic {
         })
           .then((r) => { if (!r.ok) throw new Error('bad'); return r.json(); })
           .then(() => this.setState({ promoSent: true, promoSending: false }))
-          .catch(() => this.setState({ promoSent: true, promoSending: false }));
+          .catch(() => this.setState({ promoSending: false, promoErr: tt.promo.errSend || tt.errSubmit }));
       }
     };
   }
